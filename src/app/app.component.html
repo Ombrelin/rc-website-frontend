@@ -1,11 +1,36 @@
-<mat-toolbar color="primary" class="main-menu">
-  <span>Rencontres Contemporaines</span>
-  <span class="spacer"></span>
-  <button mat-button>Accueil</button>
-  <button mat-button>Concerts</button>
-  <button mat-button>Ateliers d'écoute</button>
-  <button mat-button>Fils rouges</button>
-  <button mat-button>Partenaires et soutiens</button>
-</mat-toolbar>
 
 <router-outlet></router-outlet>
+
+<footer>
+  <mat-grid-list cols="3" rowHeight="20vh">
+    <mat-grid-tile>
+      <div class="footer-col">
+        <h3>Contact</h3>
+        <br>
+        Mail : contact@rencontres-contemporaines.com<br><br>
+        Téléphone :<br>
+        04 78 64 82 60<br>
+        06 22 62 20 60<br>
+        06 76 96 97 06<br>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="footer-col">
+        <h3>Réseaux sociaux</h3>
+        <a href="https://www.facebook.com/rencontrescontemporaines/?ref=br_rs">
+          <img src="/assets/images/facebook.png" alt="facebook" class="rs-icon">
+        </a>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="footer-col">
+        <h3>A propos</h3>
+        Développé et maintenu par <a href="https://arsenelapostolet.fr">Arsène Lapostolet</a><br><br>
+        Construit avec :<br><br>
+        <img class="tech-icon" src="https://angular.io/assets/images/logos/angular/angular.png"/>
+        <img class="tech-icon" src="https://www.stickpng.com/assets/images/58482a6bcef1014c0b5e4a14.png"/>
+        <img class="tech-icon" src="https://cdn4.iconfinder.com/data/icons/google-i-o-2016/512/google_firebase-2-512.png">
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</footer>

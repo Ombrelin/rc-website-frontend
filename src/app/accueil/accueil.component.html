@@ -1,0 +1,165 @@
+<mat-toolbar color="primary" class="main-menu">
+  <span>Rencontres Contemporaines</span>
+  <span class="spacer"></span>
+  <button mat-button (click)="header.scrollIntoView({behavior: 'smooth'})">Accueil</button>
+  <button mat-button (click)="intro.scrollIntoView({behavior: 'smooth'})">A propos</button>
+  <button mat-button (click)="concerts.scrollIntoView({behavior: 'smooth'})">Concerts</button>
+  <button mat-button>Ateliers d'écoute</button>
+  <button mat-button>Fils rouges</button>
+  <button mat-button>Partenaires et soutiens</button>
+</mat-toolbar>
+
+
+<header #header>
+  <mat-grid-list cols="12" rowHeight="10vh">
+    <!-- -->
+    <mat-grid-tile
+      [colspan]="12"
+      [rowspan]="1">
+    </mat-grid-tile>
+    <mat-grid-tile
+      [colspan]="12"
+      [rowspan]="1">
+    </mat-grid-tile>
+    <!-- -->
+    <mat-grid-tile
+      [colspan]="3"
+      [rowspan]="2">
+    </mat-grid-tile>
+    <mat-grid-tile
+      [colspan]="6"
+      [rowspan]="2">
+      <img class="logo" src="/assets/images/logo.jpg" alt="logo rc"/>
+    </mat-grid-tile>
+    <mat-grid-tile
+      [colspan]="3"
+      [rowspan]="2">
+    </mat-grid-tile>
+    <!-- -->
+    <mat-grid-tile
+      [colspan]="4"
+      [rowspan]="2">
+    </mat-grid-tile>
+    <mat-grid-tile
+      [colspan]="4"
+      [rowspan]="2">
+      <span class="title">Parcours-découverte de la musique XX°
+        et XXI°, créations, reprises, dialogue entre classiques et oeuvres nouvelles.</span>
+    </mat-grid-tile>
+    <mat-grid-tile
+      [colspan]="4"
+      [rowspan]="2">
+    </mat-grid-tile>
+  </mat-grid-list>
+</header>
+<section #intro class="intro">
+
+  <div class="section-title">Les Rencontres Contemporaines ?</div>
+
+  <div class="about">
+    Portées par l’association Lien-Création, Les Rencontres Contemporaines vous invitent à découvrir et partager la
+    musique de notre époque. Pour ce faire, elles programment des concerts, ateliers et rencontres. Elles suscitent de
+    nouvelles œuvres, passant régulièrement commande aux compositeurs.<br><br>
+    La petite équipe des Rencontres Contemporaines travaille particulièrement la façon d’accueillir les artistes et
+    le public, soucieuse d’une qualité d’échange et de rencontre. Elle est aussi fidèle à des artistes dont elle
+    suit le travail et les créations dans la durée, ainsi qu’à des lieux.<br><br>
+
+    A Lyon, un lieu de résidence est mis à disposition au siège lyonnais de l’association Lien-Création. Depuis 10
+    ans, ce lieu est ouvert à l’ensemble "Les Six voix Solistes” de Résonance Contemporaine et souvent aussi à
+    d’autres artistes pour répéter, expérimenter, voire pour présenter des recherches en cours.
+  </div>
+</section>
+<section #concerts class="concerts">
+
+  <div class="section-title">Concerts</div>
+
+  <mat-grid-list cols="4" rowHeight="40vh">
+    <mat-grid-tile>
+      <mat-card class="example-card">
+        <mat-card-title>Lorem ipsum</mat-card-title>
+        <mat-card-subtitle>Lorem ipsum</mat-card-subtitle>
+        <mat-card-content>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore
+            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+            commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+            est
+            laborum.
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-card class="example-card">
+
+        <mat-card-title>Lorem ipsum</mat-card-title>
+        <mat-card-subtitle>Lorem ipsum</mat-card-subtitle>
+
+        <mat-card-content>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore
+            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+            commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+            est
+            laborum.
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-card class="example-card">
+
+        <mat-card-title>Lorem ipsum</mat-card-title>
+        <mat-card-subtitle>Lorem ipsum</mat-card-subtitle>
+
+        <mat-card-content>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore
+            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+            commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+            est
+            laborum.
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-card class="example-card">
+
+        <mat-card-title>Lorem ipsum</mat-card-title>
+        <mat-card-subtitle>Lorem ipsum</mat-card-subtitle>
+
+        <mat-card-content>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore
+            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+            commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+            est
+            laborum.
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+  </mat-grid-list>
+
+  <div class="section-actions">
+    <button mat-raised-button color="primary">Voir plus de concerts</button>
+  </div>
+
+</section>

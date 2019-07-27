@@ -1,0 +1,85 @@
+header {
+  height: 100vh;
+  background-image: url("/assets/images/background.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-size: 100%;
+}
+
+.spacer{
+  flex: 1 1 auto;
+}
+
+.main-menu{
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  box-shadow: 0 2px 5px black;
+  z-index: 10000;
+  width: 100vw;
+}
+
+
+.logo {
+  width: 25%;
+  border-radius: 3px;
+}
+
+:host {
+  position: relative;
+}
+
+.title {
+  font-size: 18px;
+  padding: 16px;
+  text-align: center;
+  background-color: #1a237e;
+  color: white;
+}
+
+.section-title {
+  padding: 3vw;
+  text-align: center;
+  font-size: 60px;
+  font-weight: lighter !important;
+  width: 100%;
+  color: gray;
+}
+
+.about {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: justify;
+  line-height: 24px;
+}
+
+.intro {
+  margin-bottom: 10vh;
+}
+
+.concerts {
+  background-color: #E3F2FD;
+  padding-bottom: 1.5vw;
+}
+
+.concerts mat-card {
+  width: 75%;
+}
+
+.concerts .section-title {
+  text-align: left;
+}
+
+.section-actions{
+  width: 100%;
+  padding: 1.5vw;
+}
+
+.section-actions button {
+  width: 10vw;
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
+}

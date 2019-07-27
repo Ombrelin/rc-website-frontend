@@ -1,11 +1,37 @@
-.spacer{
-  flex: 1 1 auto;
-}
 
-.main-menu{
-  position: fixed;
+:host{
+  position: absolute;
   left: 0;
   right: 0;
-  top: 0;
-  box-shadow: 0 2px 5px black;
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+  width: 100%;
+}
+
+footer{
+  background-color: #424242;
+  color: white;
+  padding: 24px;
+}
+
+footer h3{
+  text-align: left;
+}
+
+footer hr{
+  width: 100%;
+  color: white;
+  display: inline;
+}
+
+.footer-col{
+  width: 100%;
+  height: 100%;
+}
+
+.rs-icon{
+  width: 3vw;
+}
+
+.tech-icon{
+  width: 2vw;
 }
