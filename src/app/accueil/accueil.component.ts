@@ -18,6 +18,11 @@ export class AccueilComponent implements OnInit {
   @ViewChild('header', {static: false})
   private header: HTMLElement;
 
+  @ViewChild('ateliers', {static: false})
+  private ateliers: HTMLElement;
+
+  @ViewChild('partenaires', {static: false})
+  private partenaires: HTMLElement;
 
   constructor() {
   }

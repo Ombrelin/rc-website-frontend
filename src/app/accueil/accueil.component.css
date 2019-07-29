@@ -6,11 +6,11 @@ header {
   background-size: 100%;
 }
 
-.spacer{
+.spacer {
   flex: 1 1 auto;
 }
 
-.main-menu{
+.main-menu {
   position: fixed;
   left: 0;
   right: 0;
@@ -39,7 +39,7 @@ header {
 }
 
 .section-title {
-  padding: 3vw;
+  padding-bottom: 3vw;
   text-align: center;
   font-size: 60px;
   font-weight: lighter !important;
@@ -61,7 +61,6 @@ header {
 
 .concerts {
   background-color: #E3F2FD;
-  padding-bottom: 1.5vw;
 }
 
 .concerts mat-card {
@@ -72,7 +71,7 @@ header {
   text-align: left;
 }
 
-.section-actions{
+.section-actions {
   width: 100%;
   padding: 1.5vw;
 }
@@ -82,4 +81,38 @@ header {
   margin-right: auto;
   margin-left: auto;
   display: block;
+}
+
+section {
+  padding: 4vw;
+}
+
+.ateliers .section-title {
+  text-align: left;
+  padding-bottom: 0.5vw;
+}
+
+.ateliers span {
+  font-weight: bold;
+  color: #AAA;
+  font-size: 16px;
+}
+
+p{
+  text-align: justify;
+}
+
+.partenaires{
+  background-color: #E3F2FD;
+}
+
+.partenaires mat-carousel{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 75%;
+}
+
+a{
+  color: #212121;
 }

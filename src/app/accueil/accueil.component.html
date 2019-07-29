@@ -4,9 +4,9 @@
   <button mat-button (click)="header.scrollIntoView({behavior: 'smooth'})">Accueil</button>
   <button mat-button (click)="intro.scrollIntoView({behavior: 'smooth'})">A propos</button>
   <button mat-button (click)="concerts.scrollIntoView({behavior: 'smooth'})">Concerts</button>
-  <button mat-button>Ateliers d'écoute</button>
-  <button mat-button>Fils rouges</button>
-  <button mat-button>Partenaires et soutiens</button>
+  <button mat-button (click)="ateliers.scrollIntoView({behavior: 'smooth'})">Ateliers d'écoute</button>
+  <!--<button mat-button>Fils rouges</button>-->
+  <button mat-button (click)="partenaires.scrollIntoView({behavior: 'smooth'})">Partenaires et soutiens</button>
 </mat-toolbar>
 
 
@@ -72,94 +72,164 @@
 <section #concerts class="concerts">
 
   <div class="section-title">Concerts</div>
+  <div class="container" fxLayout="row wrap" fxLayoutGap="5%" fxLayoutAlign="left">
+    <mat-card class="example-card" fxFlex.gt-md="20%" fxFlex.gt-xs="100%">
+      <mat-card-title>SPAT'Sonore</mat-card-title>
+      <mat-card-subtitle>Samedi 14 septembre 2019 à 16h30 - Hôpital Saint Jean de Dieu</mat-card-subtitle>
+      <mat-card-content>
+        <p>
+          Cette création consiste à ponctuer de chansons les improvisations et compositions du collectif, telles des
+          madeleines proustiennes dans une galaxie de sons étranges, bruitistes et spatialisés. Ceci permet notamment
+          d'accompagner en douceur les publics non-initiés vers les musiques expérimentales.<br>
 
-  <mat-grid-list cols="4" rowHeight="40vh">
-    <mat-grid-tile>
-      <mat-card class="example-card">
-        <mat-card-title>Lorem ipsum</mat-card-title>
-        <mat-card-subtitle>Lorem ipsum</mat-card-subtitle>
-        <mat-card-content>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore
-            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-            commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-            est
-            laborum.
-          </p>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
+          Depuis 2017, le collectif arrange des chansons glanées dans le répertoire grec, italien et même japonais
+          avec la chanteuseElsa Birgé (Odeia / Söta Sälta).<br>
 
-    <mat-grid-tile>
-      <mat-card class="example-card">
+          O Maharagias, chanson grecque qui parle de la parade du Maharaja avec son harem de danseuses, se termine en
+          techno envoutante.<br>
 
-        <mat-card-title>Lorem ipsum</mat-card-title>
-        <mat-card-subtitle>Lorem ipsum</mat-card-subtitle>
+          I Pirati a Palermu, chanson Sicilienne qui traite de l'arrivée des pirates à Palerme, qui vont jusqu'à voler
+          la lumière dans les yeux des femmes.<br>
+          Antano onamae nanteeno, parodie de la “danse des fous” par Tony Tani, célèbre acteur et chanteur japonais.<br>
 
-        <mat-card-content>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore
-            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-            commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-            est
-            laborum.
-          </p>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
+        </p>
 
-    <mat-grid-tile>
-      <mat-card class="example-card">
+      </mat-card-content>
+      <mat-card-actions>
+        <a mat-button href="/assets/docs/spat_flyer_09-19.pdf">FLYER</a>
+      </mat-card-actions>
+    </mat-card>
 
-        <mat-card-title>Lorem ipsum</mat-card-title>
-        <mat-card-subtitle>Lorem ipsum</mat-card-subtitle>
+    <mat-card class="example-card" fxFlex.gt-md="20%" fxFlex.gt-xs="100%">
+      <mat-card-title>Trio Polycorde</mat-card-title>
+      <mat-card-subtitle>Samedi 5 octobre 2019 à 16h30 - Hôpital Sainte-Marie du Puy</mat-card-subtitle>
+      <img mat-card-image src="/assets/images/TrioPolycorde.jpg" alt="TrioPolycorde">
+      <mat-card-content>
+        <p>
+          Artistes : <br>
+          <br>
+          Sandrine Chatron (harpe) <br> Florentino Calvo (Mandoline)<br> Jean-Marc Zvellenreuther (Guitare)<br><br><br>
 
-        <mat-card-content>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore
-            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-            commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-            est
-            laborum.
-          </p>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
 
-    <mat-grid-tile>
-      <mat-card class="example-card">
+          Oeuvres de Edith Canat de Chizy (création), Bruno Giner, Claude Barthélémy et Philippe Schœller
 
-        <mat-card-title>Lorem ipsum</mat-card-title>
-        <mat-card-subtitle>Lorem ipsum</mat-card-subtitle>
 
-        <mat-card-content>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore
-            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-            commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-            est
-            laborum.
-          </p>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
+          Entrée libre/libre participation aux frais
+          Renseigenement et réservations :<br> <a href="mailto:contact@rencontres-contemporaines.com">contact@rencontres-contemporaines.com</a>
+        </p>
 
-  </mat-grid-list>
-
-  <div class="section-actions">
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <!--<div class="section-actions">
     <button mat-raised-button color="primary">Voir plus de concerts</button>
   </div>
+-->
+</section>
+<section #ateliers class="ateliers">
 
+  <div class="section-title">Ateliers d'écoute
+  </div>
+  <span>par Philippe Gouttenoire, compositeur, « dégustation musicale » tout public (=savant ou ignorant !)</span>
+  <br><br><br><br>
+  <div class="container" fxLayout="row wrap" fxLayoutGap="5%" fxLayoutAlign="left">
+    <div fxFlex.gt-md="80%" fxFlex.gt-sm="100%">
+      <h3>Des ateliers d'écoutes ?</h3>
+      <p>Toujours menés par des compositeurs,
+
+        les ateliers proposent une écoute en profondeur.
+
+        Ils furent inaugurés par Robert Pascal il y a quelques années,
+
+        Christine Mennesson prit le relais en 2014,
+
+        puis Philippe Gouttenoire en 2015, 2016, 2017, 2018, 2019</p>
+      <p>
+        Chaque séance est une surprise, c’est le principe !!<br>
+
+        Résumé des épisodes précédents :<br>
+
+        Monteverdi, Debussy, Bartok , Chopin, Mozart , Ravel, Bach, Dutilleux, Mahler, Schubert,Berg, Debussy encore, Beethoven, Stravinski, Gesualdo
+      </p>
+      <p>
+
+        Venez et parlez-en autour de vous.
+        Les inscriptions se prennent par sms ou message au <a href="tel:+330670429832">06 70 42 98 32</a> ou au <a href="+330622622060">06 22 62 20 60</a>
+
+        Vous pouvez aussi venir directement, il y aura toujours une chaise pour vous !
+
+        NB - Nous avons un matériel d’écoute digne de vos oreilles
+      </p>
+
+      <p>
+        La participation est fixée à 10 € la séance, gratuit pour les étudiants
+      </p>
+    </div>
+    <div fxFlex.gt-md="15%" fxFlex.gt-sm="100%">
+      <h3>Prochaines dates :</h3>
+      <mat-chip-list  class="mat-chip-list-stacked" aria-label="Date">
+        <mat-chip color="primary" selected>Vendredi 27 septembre 2019 - 19h30</mat-chip>
+        <mat-chip color="primary" selected>Vendredi 15 novembre 2019 - 19h30</mat-chip>
+      </mat-chip-list>
+    </div>
+  </div>
+</section>
+<section #partenaires class="partenaires">
+  <div class="section-title">Partenaires
+  </div>
+  <mat-carousel
+    timings="250ms ease-in"
+    [autoplay]="true"
+    interval="5000"
+    color="primary"
+    proportion="40"
+    slides="8"
+    [loop]="true"
+    [hideArrows]="false"
+    [hideIndicators]="false"
+    [useKeyboard]="true"
+    [useMouseWheel]="false"
+    orientation="ltr"
+  >
+    <mat-carousel-slide
+      #matCarouselSlide
+      image="/assets/images/conseil-general.png"
+      [hideOverlay]="false"
+    ></mat-carousel-slide>
+    <mat-carousel-slide
+      #matCarouselSlide
+      image="/assets/images/drac.png"
+      [hideOverlay]="false"
+    ></mat-carousel-slide>
+    <mat-carousel-slide
+      #matCarouselSlide
+      image="/assets/images/mazet.png"
+      [hideOverlay]="false"
+    ></mat-carousel-slide>
+    <mat-carousel-slide
+      #matCarouselSlide
+      image="/assets/images/sacem.png"
+      [hideOverlay]="false"
+    ></mat-carousel-slide>
+    <mat-carousel-slide
+      #matCarouselSlide
+      image="/assets/images/saint-jean-dieu.png"
+      [hideOverlay]="false"
+    ></mat-carousel-slide>
+    <mat-carousel-slide
+      #matCarouselSlide
+      image="/assets/images/sainte-marie.png"
+      [hideOverlay]="false"
+    ></mat-carousel-slide>
+    <mat-carousel-slide
+      #matCarouselSlide
+      image="/assets/images/salabert.png"
+      [hideOverlay]="false"
+    ></mat-carousel-slide>
+    <mat-carousel-slide
+      #matCarouselSlide
+      image="/assets/images/spedidam.png"
+      [hideOverlay]="false"
+    ></mat-carousel-slide>
+  </mat-carousel>
 </section>
