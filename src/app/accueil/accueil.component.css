@@ -128,9 +128,14 @@ a{
 
 mat-card{
   padding-bottom: 3vw;
+  margin-bottom: 3vw;
 }
 
 mat-card-actions{
   position: absolute;
   bottom: 24px;
+}
+
+.italic {
+  font-style: italic;
 }
