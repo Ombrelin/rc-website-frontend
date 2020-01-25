@@ -131,6 +131,10 @@ mat-card{
   margin-bottom: 3vw;
 }
 
+mat-card img {
+  max-height: 20vh;
+}
+
 mat-card-actions{
   position: absolute;
   bottom: 24px;
