@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {Concert, ConcertsService} from '../services/concerts.service';
-import {MatDialog} from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import {ConcertDialogComponent} from '../concert-dialog/concert-dialog.component';
 
 

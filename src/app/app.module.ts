@@ -8,7 +8,7 @@ import {MaterialModule} from './material.module';
 import { AccueilComponent } from './accueil/accueil.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {ConcertDialogComponent} from './concert-dialog/concert-dialog.component';
-import { MarkdownModule } from 'ngx-markdown';
+import {MarkdownModule} from 'ngx-markdown';
 
 @NgModule({
   declarations: [
