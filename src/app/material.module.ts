@@ -5,11 +5,13 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatCardModule} from '@angular/material/card';
 import {MatChipsModule} from '@angular/material/chips';
-import { MatCarouselModule } from '@ngmodule/material-carousel';
+import {MatCarouselModule} from '@ngmodule/material-carousel';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 @NgModule({
-  imports: [MatButtonModule, MatToolbarModule, MatIconModule, MatGridListModule, MatCardModule, MatChipsModule, MatCarouselModule],
-  exports: [MatButtonModule, MatToolbarModule, MatIconModule, MatGridListModule, MatCardModule, MatChipsModule, MatCarouselModule]
+  imports: [MatSidenavModule, MatDialogModule, MatButtonModule, MatToolbarModule, MatIconModule, MatGridListModule, MatCardModule, MatChipsModule, MatCarouselModule],
+  exports: [MatSidenavModule, MatDialogModule, MatButtonModule, MatToolbarModule, MatIconModule, MatGridListModule, MatCardModule, MatChipsModule, MatCarouselModule]
 })
 export class MaterialModule {
 }

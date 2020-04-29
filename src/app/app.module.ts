@@ -7,20 +7,27 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MaterialModule} from './material.module';
 import { AccueilComponent } from './accueil/accueil.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import {ConcertDialogComponent} from './concert-dialog/concert-dialog.component';
+import { MarkdownModule } from 'ngx-markdown';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AccueilComponent
+    AccueilComponent,
+    ConcertDialogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MarkdownModule.forRoot()
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    ConcertDialogComponent
+  ]
 })
 export class AppModule { }

@@ -4,6 +4,7 @@ header {
   background-attachment: fixed;
   background-position: center;
   background-size: 100%;
+  padding-top: 8rem;
 }
 
 .spacer {
@@ -22,7 +23,7 @@ header {
 
 
 .logo {
-  width: 25%;
+  width: 20rem;
   border-radius: 3px;
 }
 
@@ -36,6 +37,24 @@ header {
   text-align: center;
   background-color: #1a237e;
   color: white;
+  border-radius: 3px;
+}
+
+.info {
+  background-color: #E65100;
+  max-width: 40rem;
+  text-align: justify;
+  color: white;
+  border-radius: 3px;
+  padding: 1rem;
+}
+
+.info-icon {
+  font-size: 5rem;
+}
+
+.info-icon-wrapper {
+  width: 30rem;
 }
 
 .section-title {
@@ -64,7 +83,16 @@ header {
 }
 
 .concerts mat-card {
-  width: 75%;
+  min-height: 23rem;
+}
+
+.inline-icon {
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+.date-location-icon {
+  font-size: 1.2rem;
 }
 
 .concerts .section-title {
@@ -98,26 +126,42 @@ section {
   font-size: 16px;
 }
 
-p{
+p {
   text-align: justify;
 }
 
-.partenaires{
+.concerts {
   background-color: #E3F2FD;
 }
 
-.partenaires mat-carousel{
+.enpratique {
+  background-color: #E3F2FD;
+}
+
+
+.tarif-text {
+  font-weight: lighter !important;
+  color: gray;
+  font-size: 5rem;
+  text-align: center;
+}
+
+.tarif-icon {
+  font-size: 3rem;
+}
+
+.partenaires mat-carousel {
   margin-left: auto;
   margin-right: auto;
   display: block;
   width: 75%;
 }
 
-a{
+a {
   color: #212121;
 }
 
-.legend{
+.legend {
   text-align: center;
   font-style: italic;
   width: 100%;
@@ -126,7 +170,7 @@ a{
   font-size: 8px;
 }
 
-mat-card{
+mat-card {
   padding-bottom: 3vw;
   margin-bottom: 3vw;
 }
@@ -135,11 +179,40 @@ mat-card img {
   max-height: 20vh;
 }
 
-mat-card-actions{
+mat-card-actions {
   position: absolute;
   bottom: 24px;
 }
 
 .italic {
   font-style: italic;
+}
+
+@media screen and (max-width: 768px) {
+
+  .info {
+    max-width: 20rem;
+  }
+
+  .section-title {
+    font-size: 3rem;
+  }
+
+  .about {
+    width: 100%;
+  }
+
+  header {
+    padding-top: 2rem
+  }
+
+  .email {
+    height: 10rem;
+  }
+
+  .phone {
+    height: 15rem;
+  }
+
+
 }

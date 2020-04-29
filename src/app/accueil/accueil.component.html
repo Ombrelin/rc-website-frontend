@@ -1,56 +1,66 @@
 <mat-toolbar color="primary" class="main-menu">
   <span>Rencontres Contemporaines</span>
   <span class="spacer"></span>
-  <button mat-button (click)="header.scrollIntoView({behavior: 'smooth'})">Accueil</button>
-  <button mat-button (click)="intro.scrollIntoView({behavior: 'smooth'})">A propos</button>
-  <button mat-button (click)="concerts.scrollIntoView({behavior: 'smooth'})">Concerts</button>
-  <button mat-button (click)="ateliers.scrollIntoView({behavior: 'smooth'})">Ateliers d'écoute</button>
-  <!--<button mat-button>Fils rouges</button>-->
-  <button mat-button (click)="partenaires.scrollIntoView({behavior: 'smooth'})">Partenaires et soutiens</button>
+  <div fxShow="true" fxHide.lt-md="true">
+    <button mat-button (click)="header.scrollIntoView({behavior: 'smooth'})">Accueil</button>
+    <button mat-button (click)="intro.scrollIntoView({behavior: 'smooth'})">A propos</button>
+    <button mat-button (click)="concerts.scrollIntoView({behavior: 'smooth'})">Concerts</button>
+    <button mat-button (click)="ateliers.scrollIntoView({behavior: 'smooth'})">Ateliers d'écoute</button>
+    <button mat-button (click)="enpratique.scrollIntoView({behavior: 'smooth'})">En pratique</button>
+    <!--<button mat-button>Fils rouges</button>-->
+    <button mat-button (click)="partenaires.scrollIntoView({behavior: 'smooth'})">Partenaires et soutiens</button>
+
+    <div fxShow="true" fxHide.gt-sm="true">
+      <a href="#" (click)="sidenav.toggle()">Show Side Menu</a>
+    </div>
+  </div>
 </mat-toolbar>
+<mat-sidenav-container fxFlexFill class="example-container">
+  <mat-sidenav #sidenav fxLayout="column" mode="side" opened="false">
+    <div fxLayout="column" fxShow="true" fxHide.gt-sm="true">
+      <a (click)="sidenav.toggle()" href="#" mat-button>Close</a>
+      <button mat-button (click)="header.scrollIntoView({behavior: 'smooth'})">Accueil</button>
+      <button mat-button (click)="intro.scrollIntoView({behavior: 'smooth'})">A propos</button>
+      <button mat-button (click)="concerts.scrollIntoView({behavior: 'smooth'})">Concerts</button>
+      <button mat-button (click)="ateliers.scrollIntoView({behavior: 'smooth'})">Ateliers d'écoute</button>
+      <button mat-button (click)="enpratique.scrollIntoView({behavior: 'smooth'})">En pratique</button>
+      <!--<button mat-button>Fils rouges</button>-->
+      <button mat-button (click)="partenaires.scrollIntoView({behavior: 'smooth'})">Partenaires et soutiens</button>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content fxFlexFill> Rencontres Contemporaines</mat-sidenav-content>
+</mat-sidenav-container>
 
 
-<header #header>
-  <mat-grid-list cols="12" rowHeight="10vh">
-    <!-- -->
-    <mat-grid-tile
-      [colspan]="12"
-      [rowspan]="1">
-    </mat-grid-tile>
-    <mat-grid-tile
-      [colspan]="12"
-      [rowspan]="1">
-    </mat-grid-tile>
-    <!-- -->
-    <mat-grid-tile
-      [colspan]="3"
-      [rowspan]="2">
-    </mat-grid-tile>
-    <mat-grid-tile
-      [colspan]="6"
-      [rowspan]="2">
-      <img class="logo" src="/assets/images/logo.jpg" alt="logo rc"/>
-    </mat-grid-tile>
-    <mat-grid-tile
-      [colspan]="3"
-      [rowspan]="2">
-    </mat-grid-tile>
-    <!-- -->
-    <mat-grid-tile
-      [colspan]="4"
-      [rowspan]="2">
-    </mat-grid-tile>
-    <mat-grid-tile
-      [colspan]="4"
-      [rowspan]="2">
-      <span class="title">Parcours-découverte de la musique XX°
-        et XXI°, créations, reprises, dialogue entre classiques et oeuvres nouvelles.</span>
-    </mat-grid-tile>
-    <mat-grid-tile
-      [colspan]="4"
-      [rowspan]="2">
-    </mat-grid-tile>
-  </mat-grid-list>
+<header #header fxLayout="column wrap" fxLayoutAlign="center center">
+  <div>
+    <img class="logo" src="/assets/images/logo.jpg" alt="logo rc"/>
+  </div>
+
+  <div>
+    <p class="title">
+      Parcours-découverte de la musique XX°
+      et XXI°, créations, reprises, dialogue entre classiques et oeuvres nouvelles.
+    </p>
+  </div>
+  <div fxLayout="row wrap" fxLayoutAlign.gt-md="start center" class="info">
+
+    <div class="info-icon-wrapper">
+      <mat-icon class="info-icon">info</mat-icon>
+    </div>
+
+    <div>
+      <p>
+        Selon la décision prise dès le début mars,
+        aux Rencontres Contemporaines on ne renonce à aucun projet pour lequel des artistes ont été engagés.
+        Les concerts qui n’ont pu avoir lieu sont et seront re-programmés entre septembre et décembre 2020,
+        en fonction des disponibilités des artistes et des lieux-partenaires.
+
+        Le spectacle vivant, on aime donc on le soutient !
+
+      </p>
+    </div>
+  </div>
 </header>
 <section #intro class="intro">
 
@@ -72,98 +82,35 @@
 <section #concerts class="concerts">
 
   <div class="section-title">Concerts</div>
-  <div class="container" fxLayout="row wrap" fxLayoutGap="5%" fxLayoutAlign="left">
-    <mat-card class="article" fxFlex.gt-md="20%" fxFlex.gt-xs="100%">
-      <mat-card-title>Poésie Action</mat-card-title>
-      <mat-card-subtitle>Dimanche 5 avril 20 à l'hôpital Saint Jean de Dieu à Lyon</mat-card-subtitle>
-      <img mat-card-image src="assets/images/poesieaction.jpeg" alt="">
+  <div class="container" fxLayout="row wrap" fxLayoutGap.gt-md="5%" fxLayoutGap="0" fxLayoutAlign="left">
+    <div *ngFor="let concert of concertsList" fxFlex.gt-md="20%" fxFlex.gt-xs="100%">
+      <mat-card class="article">
+        <mat-card-title>{{concert.title}}</mat-card-title>
+        <mat-card-subtitle>
+          <div class="inline-icon">
+            <mat-icon class="date-location-icon" *ngIf="concert.date">today</mat-icon>
+            <span>{{concert.date}}</span><br></div>
+          <div class="inline-icon">
+            <mat-icon class="date-location-icon" *ngIf="concert.location">location_on</mat-icon>
+            <span>{{concert.location}}</span><br></div>
+        </mat-card-subtitle>
+        <img *ngIf="concert.image" mat-card-image [src]="concert.image" alt="">
 
-      <mat-card-content>
-        <p>
-          par Laura Tejeda, Alain Goudard et Bartolome Ferrando
-        </p>
+        <mat-card-content>
+          <p>
+            {{concert.artist}}
+          </p>
 
-      </mat-card-content>
-      <mat-card-actions>
-        <a mat-button href="assets/docs/poesieaction.pdf">DESCRIPTION</a>
-      </mat-card-actions>
-    </mat-card>
-    <mat-card class="article" fxFlex.gt-md="20%" fxFlex.gt-xs="100%">
-      <mat-card-title>Trio Declic</mat-card-title>
-      <mat-card-subtitle>Jeudi 14 mai 20 à l'institution des Chartreux, à Lyon</mat-card-subtitle>
-      <img mat-card-image src="assets/images/declic.JPG" alt="">
-      <mat-card-content>
-        <p>
-          3 voix de femmes a cappella,
-          Valérie Philippin, Noémie Legendre et Frédérique Borsarello-Tresallet
-        </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button *ngIf="concert.description" mat-button (click)="openConcertModale(concert)">DESCRIPTION</button>
+          <a *ngIf="concert.flyer" mat-button [href]="concert.flyer">FLYER</a>
 
-      </mat-card-content>
-      <mat-card-actions>
-        <a mat-button href="assets/docs/declic.pdf">DESCRIPTION</a>
-      </mat-card-actions>
-    </mat-card>
-    <mat-card class="article" fxFlex.gt-md="20%" fxFlex.gt-xs="100%">
-      <mat-card-title>« Pandore »</mat-card-title>
-      <mat-card-subtitle>Dimanche 7 juin 20 au Lavoir Public, pentes de la Croix-Rousse à Lyon</mat-card-subtitle>
-      <img mat-card-image src="assets/images/pandore.jpg" alt="">
-
-      <mat-card-content>
-        <p>
-          Hélène Breschand, Karelle Prugnaud, et Erik M
-        </p>
-
-      </mat-card-content>
-      <mat-card-actions>
-        <a mat-button href="assets/docs/pandore.pdf">DESCRIPTION</a>
-      </mat-card-actions>
-    </mat-card>
-    <mat-card class="article" fxFlex.gt-md="20%" fxFlex.gt-xs="100%">
-      <mat-card-title>Duo violoncelle-flûte</mat-card-title>
-      <mat-card-subtitle>Dimanche 28 juin 2020 à 16h au Mazet Saint-Voy (Hte-Loire)</mat-card-subtitle>
-      <img mat-card-image src="assets/images/marieYthier.jpeg" alt="">
-
-      <mat-card-content>
-        <p>
-          Marie Ythier et Samuel Bricault
-        </p>
-
-      </mat-card-content>
-    </mat-card>
-    <mat-card class="article" fxFlex.gt-md="20%" fxFlex.gt-xs="100%">
-      <mat-card-title>Trio Polycordes</mat-card-title>
-      <mat-card-subtitle>Samedi 19 septembre 2020 à l'hôpital Saint Jean de Dieu</mat-card-subtitle>
-      <img mat-card-image src="assets/images/polycord3.jpg" alt="">
-
-      <mat-card-content>
-        <p>
-          (Harpe, mandoline et guitare ) , reprise du concert de création d’octobre 2019, Sandrine Chatron, Florentino
-          Calvo et Jean-Marc Zvellenreuther
-        </p>
-
-      </mat-card-content>
-      <mat-card-actions>
-        <a mat-button href="assets/docs/polycorde.pdf">DESCRIPTION</a>
-      </mat-card-actions>
-    </mat-card>
-    <mat-card class="article" fxFlex.gt-md="20%" fxFlex.gt-xs="100%">
-      <mat-card-title>Ensemble Mora Vocis</mat-card-title>
-      <mat-card-subtitle>Un mardi d'Octobre ou novembre 20 à l'hôpital Sainte-Marie du Puy ou dans la salle du Conseil Général au
-        Puy-en-Velay
-      </mat-card-subtitle>
-
-      <mat-card-content>
-        <p>
-          Ensemble Mora Vocis, 3 voix de femmes et un saxophone </p>
-
-      </mat-card-content>
-    </mat-card>
+        </mat-card-actions>
+      </mat-card>
+    </div>
 
   </div>
-  <!--<div class="section-actions">
-    <button mat-raised-button color="primary">Voir plus de concerts</button>
-  </div>
--->
 </section>
 <section #ateliers class="ateliers">
 
@@ -188,7 +135,8 @@
 
         Résumé des épisodes précédents :<br>
 
-        Monteverdi, Debussy, Bartok , Chopin, Mozart , Ravel, Bach, Dutilleux, Mahler, Schubert, Berg, Debussy encore, Beethoven, Stravinski, Gesualdo, Scriabine, Brahms et Webern
+        Monteverdi, Debussy, Bartok , Chopin, Mozart , Ravel, Bach, Dutilleux, Mahler, Schubert, Berg, Debussy encore,
+        Beethoven, Stravinski, Gesualdo, Scriabine, Brahms et Webern
       </p>
       <p>
 
@@ -208,13 +156,109 @@
 
     </div>
     <div fxFlex.gt-md="15%" fxFlex.gt-sm="100%">
+
+
       <h3>Prochaines dates :</h3>
       <mat-chip-list class="mat-chip-list-stacked" aria-label="Date">
         <mat-chip color="primary" selected>Jeudi 30 janvier 2020 - 20h</mat-chip>
         <mat-chip color="primary" selected>Jeudi 16 avril 2020 - 20h</mat-chip>
+        <mat-chip color="primary" selected>Nouvelle dates après l'été !</mat-chip>
       </mat-chip-list>
+
     </div>
   </div>
+</section>
+<section #enpratique class="enpratique">
+  <div class="section-title">En pratique
+  </div>
+  <h2>Tarifs : </h2>
+  <div fxLayout="row wrap" fxLayoutGap.gt-md="10%" fxLayoutGap.xs="0" fxLayout.gt-xs="100%" fxLayoutAlign="center">
+
+    <mat-card fxFlex.gt-md="30%" fxFlex.xs="100%" class="article">
+      <mat-card-title class="inline-icon"><span>Plein Tarif &nbsp;</span>
+        <mat-icon>credit_card</mat-icon>
+      </mat-card-title>
+      <mat-card-subtitle>
+        &nbsp;
+      </mat-card-subtitle>
+
+      <mat-card-content fxLayout="column" fxLayoutAlign="center center">
+        <span class="tarif-text">12€</span>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card fxFlex.gt-md="30%" fxFlex.xs="100%" class="article">
+      <mat-card-title class="inline-icon">
+        <span>Tarif réduit &nbsp;</span>
+        <mat-icon>toll</mat-icon>
+      </mat-card-title>
+      <mat-card-subtitle>
+        Adulte avec enfant, étudiant, chomeur
+      </mat-card-subtitle>
+
+      <mat-card-content fxLayout="column" fxLayoutAlign="center center">
+        <span class="tarif-text">7€</span>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card fxFlex.gt-md="30%" fxFlex.xs="100%" class="article">
+      <mat-card-title class="inline-icon">
+        <span>Gratuit &nbsp;</span>
+        <mat-icon>redeem</mat-icon>
+      </mat-card-title>
+      <mat-card-subtitle>
+        Moins de 15 ans
+      </mat-card-subtitle>
+
+      <mat-card-content fxLayout="column" fxLayoutAlign="center center">
+        <span class="tarif-text">0€</span>
+      </mat-card-content>
+    </mat-card>
+
+
+  </div>
+
+
+  <h2>Contact :</h2>
+
+  <div fxLayout="row wrap" fxLayoutGap.gt-md="10%" fxLayoutGap.xs="0" fxLayout.gt-xs="100%" fxLayoutAlign="center">
+
+    <mat-card fxFlex.gt-md="40%" fxFlex.xs="100%" class="article email" fxFlex>
+      <mat-card-title class="inline-icon"><span>Mail &nbsp;</span>
+        <mat-icon>email</mat-icon>
+      </mat-card-title>
+      <mat-card-subtitle>
+        &nbsp;
+      </mat-card-subtitle>
+      <mat-card-content>
+          <span>
+            contact@rencontres-contemporaines.com
+          </span>
+      </mat-card-content>
+      <mat-card-actions>
+        <a mat-raised-button color="primary" href="mailto:contact@rencontres-contemporaines.com">ECRIRE</a>
+      </mat-card-actions>
+    </mat-card>
+
+    <mat-card fxFlex.gt-md="40%" fxFlex.xs="100%" class="article phone" fxFlex>
+      <mat-card-title class="inline-icon"><span>Téléphone  &nbsp;</span>
+        <mat-icon>phone</mat-icon>
+      </mat-card-title>
+      <mat-card-subtitle>
+        &nbsp;
+      </mat-card-subtitle>
+      <mat-card-content>
+        <span>04 78 64 82 60</span><br>
+        <span>06 22 62 20 60</span><br>
+      </mat-card-content>
+      <mat-card-actions  fxLayout.gt-md="row" fxLayout.xs="column" fxLayoutGap.xs="10%" fxLayoutAlign="center center">
+        <a mat-raised-button color="primary" href="tel:+330478648260">APPEL : 04 78 64 82 60</a>
+        <a mat-raised-button color="primary" href="tel:+330622622060">APPEL : 06 22 62 20 60</a>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+
 </section>
 <section #partenaires class="partenaires">
   <div class="section-title">Partenaires

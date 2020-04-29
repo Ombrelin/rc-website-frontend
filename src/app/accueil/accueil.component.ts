@@ -1,4 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
+import {Concert, ConcertsService} from '../services/concerts.service';
+import {MatDialog} from '@angular/material';
+import {ConcertDialogComponent} from '../concert-dialog/concert-dialog.component';
 
 
 @Component({
@@ -24,9 +27,29 @@ export class AccueilComponent implements OnInit {
   @ViewChild('partenaires', {static: false})
   private partenaires: HTMLElement;
 
-  constructor() {
+  @ViewChild('enpratique', {static: false})
+  private enpratique: HTMLElement;
+
+  @ViewChild('sidenav', {static: false})
+  private sidenav: HTMLElement;
+
+  public concertsList: Array<Concert>;
+
+  constructor(private dialog: MatDialog,
+              private service: ConcertsService
+  ) {
   }
 
   ngOnInit() {
+    this.concertsList = this.service.getServices();
   }
+
+  openConcertModale(concert: Concert) {
+    this.dialog.open(ConcertDialogComponent, {
+      width: '950px',
+      data: concert
+    });
+  }
+
 }
+
