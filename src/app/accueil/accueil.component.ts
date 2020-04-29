@@ -11,26 +11,26 @@ import {ConcertDialogComponent} from '../concert-dialog/concert-dialog.component
 })
 export class AccueilComponent implements OnInit {
 
-  @ViewChild('intro', {static: false})
+  @ViewChild('intro')
   private intro: HTMLElement;
 
-  @ViewChild('concerts', {static: false})
+  @ViewChild('concerts')
   private concerts: HTMLElement;
 
 
-  @ViewChild('header', {static: false})
+  @ViewChild('header')
   private header: HTMLElement;
 
-  @ViewChild('ateliers', {static: false})
+  @ViewChild('ateliers')
   private ateliers: HTMLElement;
 
-  @ViewChild('partenaires', {static: false})
+  @ViewChild('partenaires')
   private partenaires: HTMLElement;
 
-  @ViewChild('enpratique', {static: false})
+  @ViewChild('enpratique')
   private enpratique: HTMLElement;
 
-  @ViewChild('sidenav', {static: false})
+  @ViewChild('sidenav')
   private sidenav: HTMLElement;
 
   public concertsList: Array<Concert>;
