@@ -9,7 +9,7 @@ import {Concert} from '../services/concerts.service';
 })
 export class ConcertDialogComponent  {
 
-  private concert: Concert;
+  public concert: Concert;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: Concert,

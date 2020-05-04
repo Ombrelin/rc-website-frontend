@@ -9,6 +9,7 @@ import { AccueilComponent } from './accueil/accueil.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {ConcertDialogComponent} from './concert-dialog/concert-dialog.component';
 import {MarkdownModule} from 'ngx-markdown';
+import { MatCarouselModule } from '@ngmodule/material-carousel';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {MarkdownModule} from 'ngx-markdown';
     BrowserAnimationsModule,
     MaterialModule,
     FlexLayoutModule,
-    MarkdownModule.forRoot()
+    MarkdownModule.forRoot(),
+    MatCarouselModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -82,8 +82,8 @@
 <section #concerts class="concerts">
 
   <div class="section-title">Concerts</div>
-  <div class="container" fxLayout="row wrap" fxLayoutGap.gt-md="5%" fxLayoutGap="0" fxLayoutAlign="left">
-    <div *ngFor="let concert of concertsList" fxFlex.gt-md="20%" fxFlex.gt-xs="100%">
+  <div class="container" fxLayout="row wrap" fxLayoutGap.gt-sm="5%" fxLayoutGap="0" fxLayoutAlign="left">
+    <div *ngFor="let concert of concertsList" fxFlex.gt-md="20%" fxFlex.gt-sm="25%" fxFlex.gt-xs="100%">
       <mat-card class="article">
         <mat-card-title>{{concert.title}}</mat-card-title>
         <mat-card-subtitle>
@@ -218,10 +218,54 @@
 
   </div>
 
+  <h2>Tarifs spécifiques à certain lieux : </h2>
+  <div fxLayout="row wrap" fxLayoutGap.gt-md="10%" fxLayoutGap.xs="0" fxLayout.gt-xs="100%" fxLayoutAlign="center">
+
+    <mat-card fxFlex.gt-md="30%" fxFlex.xs="100%" class="article">
+      <mat-card-title class="inline-icon"><span>A l'hôpital</span>
+      </mat-card-title>
+      <mat-card-subtitle>
+        &nbsp;
+      </mat-card-subtitle>
+
+      <mat-card-content fxLayout="column" fxLayoutAlign="center center">
+        <span class="tarif-text">Libre PAF</span>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card fxFlex.gt-md="30%" fxFlex.xs="100%" class="article">
+      <mat-card-title class="inline-icon">
+        <span>Au lavoir &nbsp;</span>
+      </mat-card-title>
+      <mat-card-subtitle>
+          Plein Tarif & Tarif Réduit
+      </mat-card-subtitle>
+
+      <mat-card-content fxLayout="column" fxLayoutAlign="center center">
+        <span class="tarif-text">10€ & 8€</span>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card fxFlex.gt-md="30%" fxFlex.xs="100%" class="article">
+      <mat-card-title class="inline-icon">
+        <span>Atelier &nbsp;</span>
+      </mat-card-title>
+      <mat-card-subtitle>
+        Gratuit pour les étudiants
+      </mat-card-subtitle>
+
+      <mat-card-content fxLayout="column" fxLayoutAlign="center center">
+        <span class="tarif-text">10€</span>
+      </mat-card-content>
+    </mat-card>
+
+
+  </div>
+
 
   <h2>Contact :</h2>
 
-  <div fxLayout="row wrap" fxLayoutGap.gt-md="10%" fxLayoutGap.xs="0" fxLayout.gt-xs="100%" fxLayoutAlign="center">
+  <div fxLayout="row wrap" fxLayoutGap.gt-md="10%" fxLayoutGap.xs="0" fxLayout.gt-xs="100%" fxLayoutAlign="space-between">
 
     <mat-card fxFlex.gt-md="40%" fxFlex.xs="100%" class="article email" fxFlex>
       <mat-card-title class="inline-icon"><span>Mail &nbsp;</span>
@@ -263,13 +307,15 @@
 <section #partenaires class="partenaires">
   <div class="section-title">Partenaires
   </div>
+
+
   <mat-carousel
     timings="250ms ease-in"
     [autoplay]="true"
     interval="5000"
     color="primary"
     proportion="40"
-    slides="8"
+    slides="10"
     [loop]="true"
     [hideArrows]="false"
     [hideIndicators]="false"
@@ -304,7 +350,7 @@
     ></mat-carousel-slide>
     <mat-carousel-slide
       #matCarouselSlide
-      image="/assets/images/sainte-marie.png"
+      image="/assets/images/logoSte-Marie.jpg"
       [hideOverlay]="false"
     ></mat-carousel-slide>
     <mat-carousel-slide
@@ -317,5 +363,17 @@
       image="/assets/images/spedidam.png"
       [hideOverlay]="false"
     ></mat-carousel-slide>
+    <mat-carousel-slide
+      #matCarouselSlide
+      image="/assets/images/chartreux.png"
+      [hideOverlay]="false"
+    ></mat-carousel-slide>
+
+    <mat-carousel-slide
+      #matCarouselSlide
+      image="/assets/images/logolavoir.png"
+      [hideOverlay]="false"
+    ></mat-carousel-slide>
+
   </mat-carousel>
 </section>

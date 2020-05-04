@@ -203,7 +203,7 @@ mat-card-actions {
   }
 
   header {
-    padding-top: 2rem
+    padding-top: 0;
   }
 
   .email {
@@ -212,6 +212,10 @@ mat-card-actions {
 
   .phone {
     height: 15rem;
+  }
+
+  .info-icon {
+    font-size: 2rem;
   }
 
 
