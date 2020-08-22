@@ -1,7 +1,8 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {Concert, ConcertsService} from '../services/concerts.service';
-import { MatDialog } from '@angular/material/dialog';
+import {MatDialog} from '@angular/material/dialog';
 import {ConcertDialogComponent} from '../concert-dialog/concert-dialog.component';
+import {Atelier, AteliersService} from '../services/ateliers.service';
 
 
 @Component({
@@ -16,7 +17,6 @@ export class AccueilComponent implements OnInit {
 
   @ViewChild('concerts')
   private concerts: HTMLElement;
-
 
   @ViewChild('header')
   private header: HTMLElement;
@@ -34,14 +34,16 @@ export class AccueilComponent implements OnInit {
   private sidenav: HTMLElement;
 
   public concertsList: Array<Concert>;
-
+  public ateliersList: Array<Atelier>;
   constructor(private dialog: MatDialog,
-              private service: ConcertsService
+              private concertsService: ConcertsService,
+              private ateliersService: AteliersService
   ) {
   }
 
   ngOnInit() {
-    this.concertsList = this.service.getServices();
+    this.concertsList = this.concertsService.getServices();
+    this.ateliersList = this.ateliersService.getAteliers();
   }
 
   openConcertModale(concert: Concert) {

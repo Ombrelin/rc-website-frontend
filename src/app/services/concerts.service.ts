@@ -11,14 +11,14 @@ export class ConcertsService {
   getServices(): Array<Concert> {
     return [
       new Concert('Poésie Action',
-        'Samedi 3 octobre', 'Hôpital Saint Jean de Dieu à Lyon',
+        'Samedi 3 octobre 2020 à 16h30', 'Hôpital Saint Jean de Dieu à Lyon',
         'par Laura Tejeda, Alain Goudard et Bartolome',
         undefined,
         'assets/images/poesieaction.jpeg',
         'assets/docs/poesieaction.pdf'
         ),
       new Concert('Trio Declic',
-        'Nouvelle date bientôt fixée', undefined,
+        'Jeudi 19 Novembre 2020 à 20h ', undefined,
         '3 voix de femmes a cappella,\n' +
         '          Valérie Philippin, Noémie Legendre et Frédérique Borsarello-Tresallet',
         undefined,
@@ -26,7 +26,7 @@ export class ConcertsService {
         'assets/docs/declic.pdf'
       ),
       new Concert('« Pandore »',
-        'Nouvelle date bientôt fixée', undefined,
+        'Début Décembre 2020, Date à préciser', undefined,
         'Hélène Breschand, Karelle Prugnaud, et Erik M',
         'Pandore est un prétexte , un appui , une source , un questionnement sur la nature de l\'homme Se\n' +
         'frotter à l\'inconnu , à l\'autre , à sa peau , aux mots , à la poésie , à l\'instant présent A chaque fois que\n' +
@@ -42,7 +42,7 @@ export class ConcertsService {
         undefined
       ),
       new Concert('Duo violoncelle-flûte',
-        'Nouvelle date bientôt fixée', undefined,
+        '18 Octobre 2020 à 16h', undefined,
         'Marie Ythier et Samuel Bricault',
         'Le programme proposé par la violoncelliste Marie Ythier et le flûtiste Samuel' +
         ' Bricault nous invite à voyager au cœur du spectre sonore, avec les œuvres de Tristan' +
@@ -58,7 +58,7 @@ export class ConcertsService {
       )
       ,
       new Concert('Trio Polycordes',
-        'Nouvelle date bientôt fixée', undefined,
+        'Samedi 19 septembre 2O20 à 16h30', undefined,
         '(Harpe, mandoline et guitare ) , reprise du concert de création d’octobre 2019, ' +
         'Sandrine Chatron, Florentino Calvo et Jean-Marc Zvellenreuther',
         'LeTrioPolycordes réunit trois instrumentistes talentueux, diplômés des ' +

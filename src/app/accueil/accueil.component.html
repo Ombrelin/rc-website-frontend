@@ -131,12 +131,11 @@
 
         puis Philippe Gouttenoire en 2015, 2016, 2017, 2018, 2019</p>
       <p>
-        Chaque séance est une surprise, c’est le principe !!<br>
-
-        Résumé des épisodes précédents :<br>
-
-        Monteverdi, Debussy, Bartok , Chopin, Mozart , Ravel, Bach, Dutilleux, Mahler, Schubert, Berg, Debussy encore,
-        Beethoven, Stravinski, Gesualdo, Scriabine, Brahms et Webern
+        Invités 2020: Bach, cette fois sur le concept du temps, en janvier ; puis avril fut annulé ;
+        les suivants ? inconnus encore, la surprise étant un principe de base des ateliers.
+        ceux de 2019 furent Gesualdo, Scriabine, Brahms et Webern.
+        Et avant ? Monteverdi, Debussy, Chopin, Bartok, Mozart,
+        Ravel, Bach, Dutilleux, Mahler, Schubert, Berg, Debussy encore, Beethoven, Stravinski
       </p>
       <p>
 
@@ -160,9 +159,7 @@
 
       <h3>Prochaines dates :</h3>
       <mat-chip-list class="mat-chip-list-stacked" aria-label="Date">
-        <mat-chip color="primary" selected>Jeudi 30 janvier 2020 - 20h</mat-chip>
-        <mat-chip color="primary" selected>Jeudi 16 avril 2020 - 20h</mat-chip>
-        <mat-chip color="primary" selected>Nouvelle dates après l'été !</mat-chip>
+        <mat-chip *ngFor="let atelier of ateliersList" color="primary" selected>{{atelier.date}}</mat-chip>
       </mat-chip-list>
 
     </div>
