@@ -3,6 +3,7 @@ import {Concert, ConcertsService} from '../services/concerts.service';
 import {MatDialog} from '@angular/material/dialog';
 import {ConcertDialogComponent} from '../concert-dialog/concert-dialog.component';
 import {Atelier, AteliersService} from '../services/ateliers.service';
+import {LoginDialogComponent} from '../dialogs/login-dialog/login-dialog.component';
 
 
 @Component({
@@ -35,6 +36,7 @@ export class AccueilComponent implements OnInit {
 
   public concertsList: Array<Concert>;
   public ateliersList: Array<Atelier>;
+
   constructor(private dialog: MatDialog,
               private concertsService: ConcertsService,
               private ateliersService: AteliersService
@@ -42,7 +44,11 @@ export class AccueilComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.concertsList = this.concertsService.getServices();
+    this.fetchData();
+  }
+
+  async fetchData() {
+    this.concertsList = await this.concertsService.getConcerts();
     this.ateliersList = this.ateliersService.getAteliers();
   }
 
@@ -53,5 +59,10 @@ export class AccueilComponent implements OnInit {
     });
   }
 
+  showLoginDialog() {
+    this.dialog.open(LoginDialogComponent,{
+      width: "400px"
+    });
+  }
 }
 

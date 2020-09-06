@@ -1,0 +1,27 @@
+<h1>Login</h1>
+  <form class="d-flex flex-column" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="outline">
+      <mat-label>
+        Nom d'utilisateur
+      </mat-label>
+      <input matInput placeholder="Nom d'utilisateur..." formControlName="login">
+    </mat-form-field>
+    <mat-error
+      *ngIf="login.invalid && (login.dirty || login.touched) && login.errors.required">
+      Le nom d'utilisateur est requis
+    </mat-error>
+
+    <mat-form-field appearance="outline">
+      <mat-label>
+        Mot de passe
+      </mat-label>
+      <input type="password" matInput placeholder="Mot de passe..." formControlName="password">
+    </mat-form-field>
+    <mat-error
+      *ngIf="password.invalid && (password.dirty || password.touched) && password.errors.required">
+      Le mot de passe est requis
+    </mat-error>
+
+    <button [disabled]="!(login.valid && password.valid)" mat-button color="primary" mat-raised-button (click)="onSubmit()">Connexion</button>
+  </form>
+

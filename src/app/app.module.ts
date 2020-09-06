@@ -10,12 +10,18 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {ConcertDialogComponent} from './concert-dialog/concert-dialog.component';
 import {MarkdownModule} from 'ngx-markdown';
 import { MatCarouselModule } from '@ngmodule/material-carousel';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {LoginDialogComponent} from './dialogs/login-dialog/login-dialog.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
+import {TokenInterceptor} from './security/token.interceptor';
 
 @NgModule({
   declarations: [
     AppComponent,
     AccueilComponent,
-    ConcertDialogComponent
+    ConcertDialogComponent,
+    LoginDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -24,12 +30,20 @@ import { MatCarouselModule } from '@ngmodule/material-carousel';
     MaterialModule,
     FlexLayoutModule,
     MarkdownModule.forRoot(),
-    MatCarouselModule.forRoot()
+    MatCarouselModule.forRoot(),
+    HttpClientModule,
+    ReactiveFormsModule,
+    MatInputModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent],
   entryComponents: [
-    ConcertDialogComponent
+    ConcertDialogComponent,
+    LoginDialogComponent
   ]
 })
 export class AppModule { }

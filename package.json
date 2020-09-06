@@ -25,6 +25,7 @@
     "@angular/platform-browser-dynamic": "~9.1.4",
     "@angular/router": "~9.1.4",
     "@ngmodule/material-carousel": "^0.6.0",
+    "bootstrap": "^4.5.2",
     "ngx-markdown": "^9.0.0",
     "rxjs": "~6.5.5",
     "tslib": "^1.11.1",
