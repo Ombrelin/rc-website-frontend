@@ -37,7 +37,7 @@ export class ConcertsService {
         'assets/docs/poesieaction.pdf'
         ),
       new Concert('Duo violoncelle-flûte',
-        'Date à préciser', 'Salle de la mairie du Mazet Saint-Voy',
+        'dimanche 18 octobre à 16h', 'Salle de la mairie du Mazet Saint-Voy',
         'Marie Ythier et Samuel Bricault',
         'Le programme proposé par la violoncelliste Marie Ythier et le flûtiste Samuel' +
         ' Bricault nous invite à voyager au cœur du spectre sonore, avec les œuvres de Tristan' +
@@ -51,8 +51,6 @@ export class ConcertsService {
         'assets/images/marieYthier.jpeg',
         undefined
       ),
-
-
       new Concert('Trio Declic',
         'Jeudi 19 Novembre 2020 à 20h ', 'Institution des Chartreux, 58 rue P.Dupont, Lyon 1° ',
         '3 voix de femmes a cappella,\n' +
