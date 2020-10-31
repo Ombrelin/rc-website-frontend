@@ -2,7 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {Concert, ConcertsService} from '../services/concerts.service';
 import {MatDialog} from '@angular/material/dialog';
 import {ConcertDialogComponent} from '../concert-dialog/concert-dialog.component';
-import {Atelier, AteliersService} from '../services/ateliers.service';
+import {LoginDialogComponent} from '../login-dialog/login-dialog.component';
 
 
 @Component({
@@ -33,17 +33,17 @@ export class AccueilComponent implements OnInit {
   @ViewChild('sidenav')
   private sidenav: HTMLElement;
 
+  public logged = false;
+
   public concertsList: Array<Concert>;
-  public ateliersList: Array<Atelier>;
+
   constructor(private dialog: MatDialog,
-              private concertsService: ConcertsService,
-              private ateliersService: AteliersService
+              private concertsService: ConcertsService
   ) {
   }
 
   ngOnInit() {
     this.concertsList = this.concertsService.getServices();
-    this.ateliersList = this.ateliersService.getAteliers();
   }
 
   openConcertModale(concert: Concert) {
@@ -53,5 +53,14 @@ export class AccueilComponent implements OnInit {
     });
   }
 
+  async showLoginDialog() {
+    if (!this.logged) {
+      const dialogRef = this.dialog.open(LoginDialogComponent, {
+        width: '260px'
+      });
+
+      this.logged = await dialogRef.afterClosed().toPromise();
+    }
+  }
 }
 

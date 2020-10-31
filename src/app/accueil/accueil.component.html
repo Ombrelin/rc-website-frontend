@@ -24,7 +24,6 @@
       <button mat-button (click)="concerts.scrollIntoView({behavior: 'smooth'})">Concerts</button>
       <button mat-button (click)="ateliers.scrollIntoView({behavior: 'smooth'})">Ateliers d'écoute</button>
       <button mat-button (click)="enpratique.scrollIntoView({behavior: 'smooth'})">En pratique</button>
-      <!--<button mat-button>Fils rouges</button>-->
       <button mat-button (click)="partenaires.scrollIntoView({behavior: 'smooth'})">Partenaires et soutiens</button>
     </div>
   </mat-sidenav>
@@ -34,7 +33,7 @@
 
 <header #header fxLayout="column wrap" fxLayoutAlign="center center">
   <div>
-    <img class="logo" src="/assets/images/logo.jpg" alt="logo rc"/>
+    <img class="logo" (click)="showLoginDialog()" src="/assets/images/logo.jpg" alt="logo rc"/>
   </div>
 
   <div>
@@ -82,7 +81,7 @@
 <section #concerts class="concerts">
 
   <div class="section-title">Concerts</div>
-  <div class="container" fxLayout="row wrap" fxLayoutGap.gt-sm="5%" fxLayoutGap="0" fxLayoutAlign="left">
+  <div fxLayout="row wrap" fxLayoutGap.gt-sm="5%" fxLayoutGap="0" fxLayoutAlign="left">
     <div *ngFor="let concert of concertsList" fxFlex.gt-md="20%" fxFlex.gt-sm="25%" fxFlex.gt-xs="100%">
       <mat-card class="article">
         <mat-card-title>{{concert.title}}</mat-card-title>
@@ -118,7 +117,7 @@
   </div>
   <span>par Philippe Gouttenoire, compositeur, « dégustation musicale » tout public (=savant ou ignorant !)</span>
   <br><br><br><br>
-  <div class="container" fxLayout="row wrap" fxLayoutGap="5%" fxLayoutAlign="left">
+  <div fxLayout="row wrap" fxLayoutGap="5%" fxLayoutAlign="left">
     <div fxFlex.gt-md="80%" fxFlex.gt-sm="100%">
       <h3>Des ateliers d'écoute ?</h3>
       <p>Toujours menés par des compositeurs,
@@ -156,11 +155,7 @@
     </div>
     <div fxFlex.gt-md="15%" fxFlex.gt-sm="100%">
 
-
-      <h3>Prochaines dates :</h3>
-      <mat-chip-list class="mat-chip-list-stacked" aria-label="Date">
-        <mat-chip *ngFor="let atelier of ateliersList" color="primary" selected>{{atelier.date}}</mat-chip>
-      </mat-chip-list>
+      <app-ateliers logged="logged"></app-ateliers>
 
     </div>
   </div>
@@ -306,7 +301,6 @@
 <section #partenaires class="partenaires">
   <div class="section-title">Partenaires
   </div>
-
 
   <mat-carousel
     timings="250ms ease-in"

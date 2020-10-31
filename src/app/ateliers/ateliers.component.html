@@ -1,0 +1,12 @@
+<h3>Prochaines dates :</h3>
+<mat-chip-list class="mat-chip-list-stacked" aria-label="Date">
+  <mat-chip *ngFor="let atelier of ateliersList" color="primary" selected class="row">
+
+    <div class="col-md-10 mt-n2">{{atelier.date}}</div>
+    <button class="col-md-2 mt-n3" *ngIf="logged" mat-icon-button (click)="handleClickDeleteAtelier(atelier.id)">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </mat-chip>
+</mat-chip-list>
+<br>
+<button *ngIf="logged" mat-raised-button color="primary" (click)="showNewAtelierDialog()">Ajouter un Atelier</button>

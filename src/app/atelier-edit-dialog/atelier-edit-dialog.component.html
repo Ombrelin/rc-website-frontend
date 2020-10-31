@@ -1,0 +1,12 @@
+<form [formGroup]="createAtelierForm" (ngSubmit)="onSubmit()">
+
+  <mat-form-field>
+    <mat-label>Date de l'atelier</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">Valider</button>
+
+</form>

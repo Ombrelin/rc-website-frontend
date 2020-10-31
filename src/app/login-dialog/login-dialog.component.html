@@ -1,0 +1,20 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="fill">
+    <mat-label>Identifiant</mat-label>
+    <input type="text" matInput formControlName="login">
+    <mat-error *ngIf="this.loginForm.get('login').invalid && (this.loginForm.get('login').dirty || this.loginForm.get('login').touched) && this.loginForm.get('login').errors.required">
+      Detail is required
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Mot de passe</mat-label>
+    <input type="password" matInput formControlName="password">
+    <mat-error *ngIf="this.loginForm.get('password').invalid && (this.loginForm.get('password').dirty || this.loginForm.get('password').touched) && this.loginForm.get('password').errors.required">
+      Detail is required
+    </mat-error>
+  </mat-form-field>
+  <br>
+
+  <button mat-raised-button color="primary" type="submit">Connexion</button>
+</form>

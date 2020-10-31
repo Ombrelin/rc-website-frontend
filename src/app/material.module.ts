@@ -7,10 +7,17 @@ import {MatCardModule} from '@angular/material/card';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 
 @NgModule({
-  imports: [MatSidenavModule, MatDialogModule, MatButtonModule, MatToolbarModule, MatIconModule, MatGridListModule, MatCardModule, MatChipsModule],
-  exports: [MatSidenavModule, MatDialogModule, MatButtonModule, MatToolbarModule, MatIconModule, MatGridListModule, MatCardModule, MatChipsModule]
+  imports: [MatNativeDateModule, MatDatepickerModule, MatSnackBarModule, MatFormFieldModule, MatInputModule, MatSidenavModule, MatDialogModule,
+    MatButtonModule, MatToolbarModule, MatIconModule, MatGridListModule, MatCardModule, MatChipsModule],
+  exports: [MatNativeDateModule, MatDatepickerModule, MatSnackBarModule, MatFormFieldModule, MatInputModule, MatSidenavModule, MatDialogModule,
+    MatButtonModule, MatToolbarModule, MatIconModule, MatGridListModule, MatCardModule, MatChipsModule]
 })
 export class MaterialModule {
 }
