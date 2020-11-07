@@ -12,11 +12,13 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
+import {NgxMatDatetimePickerModule, NgxMatNativeDateModule} from '@angular-material-components/datetime-picker';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
-  imports: [MatNativeDateModule, MatDatepickerModule, MatSnackBarModule, MatFormFieldModule, MatInputModule, MatSidenavModule, MatDialogModule,
+  imports: [MatProgressSpinnerModule, NgxMatNativeDateModule, NgxMatDatetimePickerModule, MatNativeDateModule, MatDatepickerModule, MatSnackBarModule, MatFormFieldModule, MatInputModule, MatSidenavModule, MatDialogModule,
     MatButtonModule, MatToolbarModule, MatIconModule, MatGridListModule, MatCardModule, MatChipsModule],
-  exports: [MatNativeDateModule, MatDatepickerModule, MatSnackBarModule, MatFormFieldModule, MatInputModule, MatSidenavModule, MatDialogModule,
+  exports: [MatProgressSpinnerModule, NgxMatNativeDateModule, NgxMatDatetimePickerModule, MatNativeDateModule, MatDatepickerModule, MatSnackBarModule, MatFormFieldModule, MatInputModule, MatSidenavModule, MatDialogModule,
     MatButtonModule, MatToolbarModule, MatIconModule, MatGridListModule, MatCardModule, MatChipsModule]
 })
 export class MaterialModule {

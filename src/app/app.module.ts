@@ -16,7 +16,12 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AteliersComponent} from './ateliers/ateliers.component';
 import {AtelierEditDialogComponent} from './atelier-edit-dialog/atelier-edit-dialog.component';
 import {TokenInterceptor} from './security/token.interceptor';
-
+import { ConcertsComponent } from './concerts/concerts.component';
+import { ConcertEditDialogComponent } from './concert-edit-dialog/concert-edit-dialog.component';
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
+// the second parameter 'fr' is optional
+registerLocaleData(localeFr, 'fr');
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +29,9 @@ import {TokenInterceptor} from './security/token.interceptor';
     ConcertDialogComponent,
     LoginDialogComponent,
     AteliersComponent,
-    AtelierEditDialogComponent
+    AtelierEditDialogComponent,
+    ConcertsComponent,
+    ConcertEditDialogComponent
   ],
   imports: [
     BrowserModule,

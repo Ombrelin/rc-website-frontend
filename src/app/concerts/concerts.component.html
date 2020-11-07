@@ -1,0 +1,34 @@
+<div class="section-title">Concerts</div>
+<div fxLayout="row wrap" fxLayoutGap.gt-sm="5%" fxLayoutGap="0" fxLayoutAlign="left">
+  <div *ngFor="let concert of concertsList" fxFlex.gt-md="20%" fxFlex.gt-sm="25%" fxFlex.gt-xs="100%">
+    <mat-card class="article" class="mb-5">
+      <mat-card-title>{{concert.title | titlecase}}</mat-card-title>
+      <mat-card-subtitle>
+        <div class="inline-icon">
+          <mat-icon class="date-location-icon" *ngIf="concert.dateTime">today</mat-icon>
+          <span *ngIf="!concert.dateTime.includes('1970')">{{concert.dateTime | date:'EEEE dd MMMM y HH:mm':'':'fr' | titlecase}}</span><br></div>
+        <span *ngIf="concert.dateTime.includes('1970')">Date à préciser</span>
+        <br>
+        <div class="inline-icon">
+          <mat-icon class="date-location-icon" *ngIf="concert.location">location_on</mat-icon>
+          <span>{{concert.location}}</span><br></div>
+      </mat-card-subtitle>
+      <img *ngIf="concert.image"  class="card-img-top" mat-card-image [src]="'https://rc.arsenelapostolet.fr/api/Files/' + concert.image" alt="">
+
+      <mat-card-content>
+        <p>
+          {{concert.artist}}
+        </p>
+
+      </mat-card-content>
+      <mat-card-actions>
+        <a *ngIf="concert.flyer !== '00000000-0000-0000-0000-000000000000'" mat-button [href]="'https://rc.arsenelapostolet.fr/api/Files/' + concert.flyer">FLYER</a>
+        <button *ngIf="concert.description" mat-button (click)="openConcertModale(concert)">INFOS</button>
+        <button *ngIf="logged" mat-icon-button (click)="editConcert(concert)"><mat-icon>edit</mat-icon></button>
+        <button *ngIf="logged" mat-icon-button (click)="deleteConcert(concert)"><mat-icon>delete</mat-icon></button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
+<button *ngIf="logged" class="mt-4" mat-raised-button color="primary" (click)="showNewConcertDialog()">Ajouter un Concert</button>
+

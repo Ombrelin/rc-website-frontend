@@ -11,6 +11,7 @@
   },
   "private": true,
   "dependencies": {
+    "@angular-material-components/datetime-picker": "^2.0.4",
     "@angular/animations": "^9.1.4",
     "@angular/cdk": "^9.2.1",
     "@angular/common": "~9.1.4",
@@ -25,7 +26,9 @@
     "@angular/platform-browser-dynamic": "~9.1.4",
     "@angular/router": "~9.1.4",
     "@ngmodule/material-carousel": "^0.6.0",
+    "bootstrap": "^4.5.3",
     "ngx-markdown": "^9.0.0",
+    "roboto-fontface": "^0.10.0",
     "rxjs": "~6.5.5",
     "tslib": "^1.11.1",
     "zone.js": "~0.10.2"

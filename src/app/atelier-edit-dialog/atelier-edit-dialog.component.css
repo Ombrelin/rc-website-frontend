@@ -1,0 +1,7 @@
+mat-form-field,button {
+  width: 100%;
+}
+
+mat-dialog-container {
+  margin-top: -20rem;
+}

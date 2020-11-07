@@ -29,7 +29,10 @@ export class AteliersComponent implements OnInit {
 
   async showNewAtelierDialog() {
     const dialogRef = this.dialog.open(AtelierEditDialogComponent, {
-      width: '300px'
+      width: '300px',
+      position: {
+        top: '10rem'
+      }
     });
 
     const newAtelier: Atelier = await dialogRef.afterClosed().toPromise();

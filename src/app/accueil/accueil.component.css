@@ -82,22 +82,9 @@ header {
   background-color: #E3F2FD;
 }
 
-.concerts mat-card {
-  min-height: 23rem;
-}
 
-.inline-icon {
-  display: inline-flex;
-  vertical-align: middle;
-}
 
-.date-location-icon {
-  font-size: 1.2rem;
-}
 
-.concerts .section-title {
-  text-align: left;
-}
 
 .section-actions {
   width: 100%;

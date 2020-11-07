@@ -3,6 +3,7 @@ import {Concert, ConcertsService} from '../services/concerts.service';
 import {MatDialog} from '@angular/material/dialog';
 import {ConcertDialogComponent} from '../concert-dialog/concert-dialog.component';
 import {LoginDialogComponent} from '../login-dialog/login-dialog.component';
+import {FormControl, Validators} from '@angular/forms';
 
 
 @Component({
@@ -10,7 +11,7 @@ import {LoginDialogComponent} from '../login-dialog/login-dialog.component';
   templateUrl: './accueil.component.html',
   styleUrls: ['./accueil.component.css']
 })
-export class AccueilComponent implements OnInit {
+export class AccueilComponent {
 
   @ViewChild('intro')
   private intro: HTMLElement;
@@ -33,25 +34,12 @@ export class AccueilComponent implements OnInit {
   @ViewChild('sidenav')
   private sidenav: HTMLElement;
 
-  public logged = false;
+  public logged: boolean = sessionStorage.getItem("token") !== null;
 
-  public concertsList: Array<Concert>;
-
-  constructor(private dialog: MatDialog,
-              private concertsService: ConcertsService
-  ) {
+  constructor(private dialog: MatDialog) {
+    console.log(this.logged);
   }
 
-  ngOnInit() {
-    this.concertsList = this.concertsService.getServices();
-  }
-
-  openConcertModale(concert: Concert) {
-    this.dialog.open(ConcertDialogComponent, {
-      width: '950px',
-      data: concert
-    });
-  }
 
   async showLoginDialog() {
     if (!this.logged) {

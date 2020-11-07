@@ -80,36 +80,8 @@
 </section>
 <section #concerts class="concerts">
 
-  <div class="section-title">Concerts</div>
-  <div fxLayout="row wrap" fxLayoutGap.gt-sm="5%" fxLayoutGap="0" fxLayoutAlign="left">
-    <div *ngFor="let concert of concertsList" fxFlex.gt-md="20%" fxFlex.gt-sm="25%" fxFlex.gt-xs="100%">
-      <mat-card class="article">
-        <mat-card-title>{{concert.title}}</mat-card-title>
-        <mat-card-subtitle>
-          <div class="inline-icon">
-            <mat-icon class="date-location-icon" *ngIf="concert.date">today</mat-icon>
-            <span>{{concert.date}}</span><br></div>
-          <div class="inline-icon">
-            <mat-icon class="date-location-icon" *ngIf="concert.location">location_on</mat-icon>
-            <span>{{concert.location}}</span><br></div>
-        </mat-card-subtitle>
-        <img *ngIf="concert.image" mat-card-image [src]="concert.image" alt="">
+  <app-concerts [logged]="logged" ></app-concerts>
 
-        <mat-card-content>
-          <p>
-            {{concert.artist}}
-          </p>
-
-        </mat-card-content>
-        <mat-card-actions>
-          <button *ngIf="concert.description" mat-button (click)="openConcertModale(concert)">DESCRIPTION</button>
-          <a *ngIf="concert.flyer" mat-button [href]="concert.flyer">FLYER</a>
-
-        </mat-card-actions>
-      </mat-card>
-    </div>
-
-  </div>
 </section>
 <section #ateliers class="ateliers">
 
@@ -118,7 +90,7 @@
   <span>par Philippe Gouttenoire, compositeur, « dégustation musicale » tout public (=savant ou ignorant !)</span>
   <br><br><br><br>
   <div fxLayout="row wrap" fxLayoutGap="5%" fxLayoutAlign="left">
-    <div fxFlex.gt-md="80%" fxFlex.gt-sm="100%">
+    <div fxFlex.gt-md="75%" fxFlex.gt-sm="100%">
       <h3>Des ateliers d'écoute ?</h3>
       <p>Toujours menés par des compositeurs,
 
@@ -153,9 +125,9 @@
       </p>
 
     </div>
-    <div fxFlex.gt-md="15%" fxFlex.gt-sm="100%">
+    <div fxFlex.gt-md="20%" fxFlex.gt-sm="100%">
 
-      <app-ateliers logged="logged"></app-ateliers>
+      <app-ateliers [logged]="logged"></app-ateliers>
 
     </div>
   </div>

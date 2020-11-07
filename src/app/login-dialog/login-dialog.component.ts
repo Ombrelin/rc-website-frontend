@@ -33,7 +33,7 @@ export class LoginDialogComponent implements OnInit {
 
     try {
       await this.loginService.login(this.loginForm.get('login').value, this.loginForm.get('password').value);
-      this.snackbar.open('Succès');
+      this.snackbar.open('Succès', null, {duration: 2000});
       this.dialogRef.close(true);
     } catch (e) {
       this.snackbar.open('Mauvais identifiants');
