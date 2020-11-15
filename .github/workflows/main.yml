@@ -31,12 +31,13 @@ jobs:
       run: ls dist
       
     - name: FTP-Deploy-Action
-      uses: SamKirkland/FTP-Deploy-Action@2.0.0
+      uses: SamKirkland/FTP-Deploy-Action@4.0.0
       env:
-        FTP_SERVER: ${{ secrets.FTP_SERVER }}
-        FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
-        FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-        LOCAL_DIR: dist/rc-website
-        METHOD: ftp
-        PORT: 21
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: dist/rc-website
+        server-dir: www 
+        method: ftp
+        port: 21
         ARGS: --delete
