@@ -1,9 +1,7 @@
 
-<form [formGroup]="createAtelierForm" (ngSubmit)="onSubmit()">
-
   <mat-form-field  appearance="fill">
     <mat-label>Date</mat-label>
-    <input matInput [ngxMatDatetimePicker]="picker" formControlName="date">
+    <input name="date" [(ngModel)]="atelier.date" matInput [ngxMatDatetimePicker]="picker">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <ngx-mat-datetime-picker #picker [showSpinners]="true" [showSeconds]="false"
                              [stepHour]="1" [stepMinute]="1" [stepSecond]="1"
@@ -11,10 +9,12 @@
                              [disableMinute]="false" [hideTime]="false">
     </ngx-mat-datetime-picker>
   </mat-form-field>
-  <mat-error *ngIf="this.date.invalid && this.date.dirty || this.date.touched && this.date.errors?.required">
-    Date et heure obligatoire
-  </mat-error>
 
-  <button mat-raised-button color="primary" type="submit">Valider</button>
+  <mat-form-field  appearance="fill">
+    <mat-label>Commentaire</mat-label>
+    <input type="text" name="title" [(ngModel)]="atelier.comment" matInput>
+  </mat-form-field>
 
-</form>
+
+  <button mat-raised-button color="primary" (click)="onSubmit()">Valider</button>
+

@@ -16,6 +16,8 @@ export class ConcertsComponent implements OnInit {
 
   public concertsList: Array<Concert>;
 
+  public loading = true;
+
   constructor(private dialog: MatDialog,
               private concertsService: ConcertsService
   ) {
@@ -23,6 +25,8 @@ export class ConcertsComponent implements OnInit {
 
   async ngOnInit() {
     this.concertsList = await this.concertsService.getConcerts();
+    this.loading = false;
+    console.table(this.concertsList);
   }
 
   openConcertModale(concert: Concert) {
@@ -34,7 +38,7 @@ export class ConcertsComponent implements OnInit {
 
   async showNewConcertDialog() {
     const dialogRef = this.dialog.open(ConcertEditDialogComponent, {
-      width: '400px',
+      width: '950px',
       position: {
         top: '5rem'
       }
@@ -48,17 +52,18 @@ export class ConcertsComponent implements OnInit {
 
   async editConcert(concert: Concert) {
     const dialogRef = this.dialog.open(ConcertEditDialogComponent, {
-      width: '400px',
+      width: '950px',
       data: concert,
       position: {
         top: '5rem'
       }
     });
-    const editedConcert = await dialogRef.afterClosed().toPromise();
+    await dialogRef.afterClosed().toPromise();
 
-    if (editedConcert) {
-      this.concertsList[this.concertsList.indexOf(concert)] = editedConcert;
-    }
+    this.loading = true;
+    this.concertsList = await this.concertsService.getConcerts();
+    this.loading = false;
+
   }
 
   async deleteConcert(concert: Concert) {

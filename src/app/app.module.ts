@@ -11,7 +11,7 @@ import {ConcertDialogComponent} from './concert-dialog/concert-dialog.component'
 import {MarkdownModule} from 'ngx-markdown';
 import { MatCarouselModule } from '@ngmodule/material-carousel';
 import {LoginDialogComponent} from './login-dialog/login-dialog.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AteliersComponent} from './ateliers/ateliers.component';
 import {AtelierEditDialogComponent} from './atelier-edit-dialog/atelier-edit-dialog.component';
@@ -34,6 +34,7 @@ registerLocaleData(localeFr, 'fr');
     ConcertEditDialogComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,

@@ -37,7 +37,7 @@ export class AccueilComponent {
   public logged: boolean = sessionStorage.getItem("token") !== null;
 
   constructor(private dialog: MatDialog) {
-    console.log(this.logged);
+
   }
 
 

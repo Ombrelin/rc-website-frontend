@@ -1,3 +1,6 @@
+
+<mat-spinner *ngIf="loading"></mat-spinner>
+
 <div class="section-title">Concerts</div>
 <div fxLayout="row wrap" fxLayoutGap.gt-sm="5%" fxLayoutGap="0" fxLayoutAlign="left">
   <div *ngFor="let concert of concertsList" fxFlex.gt-md="20%" fxFlex.gt-sm="25%" fxFlex.gt-xs="100%">
@@ -6,12 +9,14 @@
       <mat-card-subtitle>
         <div class="inline-icon">
           <mat-icon class="date-location-icon" *ngIf="concert.dateTime">today</mat-icon>
-          <span *ngIf="!concert.dateTime.includes('1970')">{{concert.dateTime | date:'EEEE dd MMMM y HH:mm':'':'fr' | titlecase}}</span><br></div>
+          <span *ngIf="!concert.dateTime.includes('1970')">{{concert.dateTime | date:'EEEE dd MMMM y HH:mm':'':'fr' | titlecase}} <span *ngIf="!concert.dateSure" class="font-italic">- à préciser</span></span><br></div>
         <span *ngIf="concert.dateTime.includes('1970')">Date à préciser</span>
         <br>
         <div class="inline-icon">
           <mat-icon class="date-location-icon" *ngIf="concert.location">location_on</mat-icon>
-          <span>{{concert.location}}</span><br></div>
+          <span>{{concert.location}}  <span *ngIf="!concert.locationSure" class="font-italic">- à préciser</span></span>
+         <br>
+        </div>
       </mat-card-subtitle>
       <img *ngIf="concert.image"  class="card-img-top" mat-card-image [src]="'https://rc.arsenelapostolet.fr/api/Files/' + concert.image" alt="">
 

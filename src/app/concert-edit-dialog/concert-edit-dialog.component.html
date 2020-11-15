@@ -1,73 +1,67 @@
 <h2>Nouveau concert</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
 
-<form [formGroup]="createConcertForm" (ngSubmit)="onSubmit()">
+      <mat-form-field  appearance="fill">
+        <mat-label>Titre</mat-label>
+        <input name="title" [(ngModel)]="concert.title" matInput>
+      </mat-form-field>
 
-  <mat-form-field  appearance="fill">
-    <mat-label>Titre</mat-label>
-    <input matInput formControlName="title">
-  </mat-form-field>
-  <mat-error *ngIf="this.title.invalid && title.dirty || title.touched && title.errors?.required">
-    Titre obligatoire
-  </mat-error>
+      <mat-form-field  appearance="fill">
+        <mat-label>Date</mat-label>
+        <input name="date" [(ngModel)]="concert.dateTime" matInput [ngxMatDatetimePicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <ngx-mat-datetime-picker #picker [showSpinners]="true" [showSeconds]="false"
+                                 [stepHour]="1" [stepMinute]="1" [stepSecond]="1"
+                                 [touchUi]="mobile" color="#0066CC" [enableMeridian]="true"
+                                 [disableMinute]="false" [hideTime]="false">
+        </ngx-mat-datetime-picker>
+      </mat-form-field>
 
-  <mat-form-field  appearance="fill">
-    <mat-label>Date</mat-label>
-    <input matInput [ngxMatDatetimePicker]="picker" formControlName="dateTime">
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <ngx-mat-datetime-picker #picker [showSpinners]="true" [showSeconds]="false"
-                             [stepHour]="1" [stepMinute]="1" [stepSecond]="1"
-                             [touchUi]="mobile" color="#0066CC" [enableMeridian]="true"
-                             [disableMinute]="false" [hideTime]="false">
-    </ngx-mat-datetime-picker>
-  </mat-form-field>
-  <mat-error *ngIf="this.dateTime.invalid && this.dateTime.dirty || this.dateTime.touched && this.dateTime.errors?.required">
-    Date et heure obligatoire
-  </mat-error>
+      <mat-label>Date sûre</mat-label><br>
+      <mat-slide-toggle name="dateSure" [(ngModel)]="concert.dateSure" color="primary">{{concert.dateSure ? 'Sûre' : 'Pas Sûre'}}</mat-slide-toggle>
+      <br>
 
+      <mat-form-field  appearance="fill">
+        <mat-label>Emplacement</mat-label>
+        <input name="location" [(ngModel)]="concert.location" matInput>
+      </mat-form-field>
 
-  <mat-form-field  appearance="fill">
-    <mat-label>Emplacement</mat-label>
-    <input matInput formControlName="location">
-  </mat-form-field>
-  <mat-error *ngIf="this.location.invalid && this.location.dirty || this.location.touched && this.location.errors?.required">
-    Lieu obligatoire
-  </mat-error>
+      <mat-label>Lieu sûre</mat-label><br>
+      <mat-slide-toggle name="locationSure" [(ngModel)]="concert.locationSure" color="primary">{{concert.dateSure ? 'Sûre' : 'Pas Sûre'}}</mat-slide-toggle>
+      <br>
 
-  <mat-form-field  appearance="fill">
-    <mat-label>Artiste</mat-label>
-    <input matInput formControlName="artist">
-  </mat-form-field>
-  <mat-error *ngIf="this.artist.invalid && this.artist.dirty || this.artist.touched && this.artist.errors?.required">
-    Artiste obligatoire
-  </mat-error>
+      <mat-form-field  appearance="fill">
+        <mat-label>Artiste</mat-label>
+        <input name="artist" [(ngModel)]="concert.artist" matInput>
+      </mat-form-field>
 
-  <mat-form-field  appearance="fill">
-    <mat-label>Description</mat-label>
-    <textarea matInput
-              cdkTextareaAutosize
-              #autosize="cdkTextareaAutosize"
-              cdkAutosizeMinRows="3"
-              cdkAutosizeMaxRows="10"
-              formControlName="description"
-    ></textarea>
-  </mat-form-field>
-  <mat-error *ngIf="this.description.invalid && this.description.dirty || this.description.touched && this.description.errors?.required">
-    Description obligatoire
-  </mat-error>
+    </div>
+    <div class="col-md-6">
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <textarea matInput
+                  cdkTextareaAutosize
+                  #autosize="cdkTextareaAutosize"
+                  cdkAutosizeMinRows="3"
+                  cdkAutosizeMaxRows="10"
+                  name="description"
+                  [(ngModel)]="concert.description"
+        ></textarea>
+      </mat-form-field>
 
 
-  <mat-label>Image</mat-label>
-  <input type="file" formControlName="image" (change)="onImageFileChange($event.target.files)">
-  <mat-error *ngIf="this.image.invalid && this.image.dirty || this.image.touched && this.image.errors?.required">
-    Description obligatoire
-  </mat-error>
+      <mat-label>Image</mat-label><br>
+      <input type="file" (change)="onImageFileChange($event.target.files)">
+      <br><br>
+      <mat-label>Flyer</mat-label><br>
+      <input type="file" (change)="onFlyerFileChange($event.target.files)">
 
-  <mat-label>Flyer</mat-label>
-  <input type="file" formControlName="flyer" (change)="onFlyerFileChange($event.target.files)">
+    </div>
+  </div>
+</div>
 
-  <br>
-  <br>
 
-  <button *ngIf="!loading" mat-raised-button color="primary" type="submit">Valider</button>
-  <mat-spinner *ngIf="loading" diameter="16"></mat-spinner>
-</form>
+<button *ngIf="!loading" mat-raised-button color="primary" (click)="onSubmit()">Valider</button>
+<mat-spinner *ngIf="loading" diameter="16"></mat-spinner>

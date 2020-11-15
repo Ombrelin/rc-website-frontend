@@ -126,14 +126,16 @@ export class ConcertsService {
 }
 
 export class Concert {
-  constructor(public id: string,
-              public title: string,
-              public dateTime: string,
-              public location: string,
-              public artist: string,
-              public description: string,
-              public image: string,
-              public flyer: string
+  constructor(public id?: string,
+              public title?: string,
+              public dateTime?: string,
+              public dateSure?: boolean,
+              public location?: string,
+              public locationSure?: boolean,
+              public artist?: string,
+              public description?: string,
+              public image?: string,
+              public flyer?: string
 
   ) {
 

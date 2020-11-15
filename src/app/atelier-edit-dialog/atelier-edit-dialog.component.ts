@@ -1,40 +1,32 @@
 import {Component, OnInit} from '@angular/core';
 import {MatDialogRef} from '@angular/material/dialog';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Atelier, AteliersService} from '../services/ateliers.service';
 
 @Component({
-    selector: 'app-atelier-edit-dialog',
-    templateUrl: './atelier-edit-dialog.component.html',
-    styleUrls: ['./atelier-edit-dialog.component.css']
+  selector: 'app-atelier-edit-dialog',
+  templateUrl: './atelier-edit-dialog.component.html',
+  styleUrls: ['./atelier-edit-dialog.component.css']
 })
 export class AtelierEditDialogComponent implements OnInit {
 
-    createAtelierForm = new FormGroup({
-        date: new FormControl('', Validators.required)
-    });
-    mobile: boolean = window.matchMedia('(max-width: 768px)').matches;
+  atelier = new Atelier();
 
-    constructor(private dialogRef: MatDialogRef<AtelierEditDialogComponent>,
-                private service: AteliersService
-    ) {
-    }
+  mobile: boolean = window.matchMedia('(max-width: 768px)').matches;
 
-    ngOnInit(): void {
-    }
+  constructor(private dialogRef: MatDialogRef<AtelierEditDialogComponent>,
+              private service: AteliersService
+  ) {
+  }
 
-    async onSubmit() {
-        if (this.createAtelierForm.invalid) {
-            return;
-        }
-        let newAtelier = new Atelier(undefined, new Date(this.createAtelierForm.get('date').value));
-        newAtelier = await this.service.createAtelier(newAtelier);
+  ngOnInit(): void {
+  }
 
-        this.dialogRef.close(newAtelier);
-    }
+  async onSubmit() {
 
-    get date() {
-        return this.createAtelierForm.get('date');
-    }
+    this.atelier = await this.service.createAtelier(this.atelier);
+
+    this.dialogRef.close(this.atelier);
+  }
+
 
 }

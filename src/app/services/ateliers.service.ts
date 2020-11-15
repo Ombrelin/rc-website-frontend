@@ -33,8 +33,9 @@ export class AteliersService {
 
 export class Atelier {
   constructor(
-    public id: string,
-    public date: Date
+    public id?: string,
+    public date?: Date,
+    public comment?: string
   ) {
   }
 }
