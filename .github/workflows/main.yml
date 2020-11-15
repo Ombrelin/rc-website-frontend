@@ -37,7 +37,7 @@ jobs:
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: dist/rc-website
-        server-dir: www 
+        server-dir: www/ 
         method: ftp
         port: 21
         ARGS: --delete
