@@ -31,12 +31,20 @@ jobs:
       run: ls dist
       
     - name: FTP-Deploy-Action
-      uses: SamKirkland/FTP-Deploy-Action@2.0.0
-      env:
-        FTP_SERVER: ${{ secrets.FTP_SERVER }}
-        FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
-        FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-        LOCAL_DIR: dist/rc-website
-        METHOD: ftp
-        PORT: 21
+      uses: SamKirkland/FTP-Deploy-Action@4.0.0
+      with:
+        server: ftp.cluster029.hosting.ovh.net
+        username: jtksqfb
+        password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: dist/rc-website/
+        server-dir: www/ 
+        method: ftp
+        port: 21
         ARGS: --delete
+        
+    - name: Discord notificati  on
+      env:
+        DISCORD_WEBHOOK: ${{ secrets.WEBHOOK }}
+      uses: Ilshidur/action-discord@master
+      with:
+        args: 'The project {{ EVENT_PAYLOAD.repository.full_name }} has been deployed.'
