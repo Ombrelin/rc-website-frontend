@@ -32,9 +32,9 @@ jobs:
       
     - name: FTP-Deploy-Action
       uses: SamKirkland/FTP-Deploy-Action@4.0.0
-      env:
-        server: ${{ secrets.FTP_SERVER }}
-        username: ${{ secrets.FTP_USERNAME }}
+      with:
+        server: ftp.cluster029.hosting.ovh.net
+        username: jtksqfb
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: dist/rc-website
         server-dir: www/ 
