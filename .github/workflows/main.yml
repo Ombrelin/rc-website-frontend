@@ -41,3 +41,10 @@ jobs:
         method: ftp
         port: 21
         ARGS: --delete
+        
+    - name: Discord notificati  on
+      env:
+        DISCORD_WEBHOOK: ${{ secrets.WEBHOOK }}
+      uses: Ilshidur/action-discord@master
+      with:
+        args: 'The project {{ EVENT_PAYLOAD.repository.full_name }} has been deployed.'
