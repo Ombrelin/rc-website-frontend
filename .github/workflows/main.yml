@@ -36,7 +36,7 @@ jobs:
         server: ftp.cluster029.hosting.ovh.net
         username: jtksqfb
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: dist/rc-website
+        local-dir: dist/rc-website/
         server-dir: www/ 
         method: ftp
         port: 21
