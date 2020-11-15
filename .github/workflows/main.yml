@@ -28,7 +28,7 @@ jobs:
         npm run build -- --prod
         
     - name: List output files
-      run: ls
+      run: ls dist
       
     - name: FTP-Deploy-Action
       uses: SamKirkland/FTP-Deploy-Action@2.0.0
@@ -37,6 +37,6 @@ jobs:
         FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
         FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
         LOCAL_DIR: dist/rc-website
-        METHOD: sftp
-        PORT: 22
+        METHOD: ftp
+        PORT: 21
         ARGS: --delete
