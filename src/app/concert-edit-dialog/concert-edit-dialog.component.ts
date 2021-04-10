@@ -37,6 +37,11 @@ export class ConcertEditDialogComponent implements OnInit {
     return this.update ? "Modification du concert" : "Nouveau concert"
   }
 
+  getHoursWithoutSeconds(concert: Concert) : Array<string> {
+    return concert.hours ? concert.hours.map(hour => hour.slice(0,5)) : [];
+  }
+
+
   ngOnInit(): void {
 
   }
@@ -75,7 +80,7 @@ export class ConcertEditDialogComponent implements OnInit {
       this.concert.dateTime = new Date(0).toISOString();
     }
 
-    this.concert.hours = this.concert.hours?.map(hour => `${hour}:00`)
+    this.concert.hours = [...this.concert.hours?.filter(hour => hour.length == 5).map(hour => `${hour}:00`), ...this.concert.hours?.filter(hour => hour.length > 5)];
 
     if (!this.update) {
       this.concert = await this.concerts.createConcert(this.concert);

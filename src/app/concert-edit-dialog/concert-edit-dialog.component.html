@@ -15,10 +15,15 @@
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
 
+      <mat-form-field  appearance="fill">
+        <mat-label>Format de date</mat-label>
+        <input name="title" [(ngModel)]="concert.dateFormat" matInput>
+      </mat-form-field>
+
       <mat-form-field appearance="fill">
         <mat-label>Ajouter une ou plusieurs heures</mat-label>
         <mat-chip-list #chipList aria-label="Fruit selection">
-          <mat-chip *ngFor="let hour of concert.hours" [selectable]="true"
+          <mat-chip *ngFor="let hour of getHoursWithoutSeconds(concert)" [selectable]="true"
                     [removable]="true" (removed)="remove(hour)">
             {{hour}}
             <mat-icon matChipRemove *ngIf="true">cancel</mat-icon>

@@ -41,7 +41,8 @@ export class Concert {
               public artist?: string,
               public description?: string,
               public image?: string,
-              public flyer?: string
+              public flyer?: string,
+              public dateFormat?: string
 
   ) {
 
