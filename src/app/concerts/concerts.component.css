@@ -12,6 +12,10 @@ mat-card {
   position: relative;
 }
 
+mat-chip {
+  min-height: 20px;
+}
+
 mat-card-actions{
   position: absolute;
   bottom: 1rem;

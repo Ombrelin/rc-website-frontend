@@ -1,4 +1,4 @@
-<h2>Nouveau concert</h2>
+<h2>{{modelTitle}}</h2>
 <div class="container">
   <div class="row">
     <div class="col-md-6">
@@ -9,19 +9,33 @@
       </mat-form-field>
 
       <mat-form-field  appearance="fill">
-        <mat-label>Date</mat-label>
-        <input name="date" [(ngModel)]="concert.dateTime" matInput [ngxMatDatetimePicker]="picker">
+        <mat-label>Choosir une date</mat-label>
+        <input matInput [(ngModel)]="concert.dateTime" [matDatepicker]="picker">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <ngx-mat-datetime-picker #picker [showSpinners]="true" [showSeconds]="false"
-                                 [stepHour]="1" [stepMinute]="1" [stepSecond]="1"
-                                 [touchUi]="mobile" color="#0066CC" [enableMeridian]="true"
-                                 [disableMinute]="false" [hideTime]="false">
-        </ngx-mat-datetime-picker>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Ajouter une ou plusieurs heures</mat-label>
+        <mat-chip-list #chipList aria-label="Fruit selection">
+          <mat-chip *ngFor="let hour of concert.hours" [selectable]="true"
+                    [removable]="true" (removed)="remove(hour)">
+            {{hour}}
+            <mat-icon matChipRemove *ngIf="true">cancel</mat-icon>
+          </mat-chip>
+          <input placeholder="Nouvelle heure au format HH:MM..."
+                 [matChipInputFor]="chipList"
+                 [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                 [matChipInputAddOnBlur]="true"
+                 (matChipInputTokenEnd)="add($event)">
+        </mat-chip-list>
       </mat-form-field>
 
       <mat-label>Date sûre</mat-label><br>
       <mat-slide-toggle name="dateSure" [(ngModel)]="concert.dateSure" color="primary">{{concert.dateSure ? 'Sûre' : 'Pas Sûre'}}</mat-slide-toggle>
       <br>
+
+
 
       <mat-form-field  appearance="fill">
         <mat-label>Emplacement</mat-label>

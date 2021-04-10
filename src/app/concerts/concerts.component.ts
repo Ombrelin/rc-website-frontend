@@ -36,6 +36,14 @@ export class ConcertsComponent implements OnInit {
     });
   }
 
+  isDateDefinitive(concert: Concert): boolean {
+    return !String(concert.dateTime).includes("1970");
+  }
+
+  getHoursWithoutSeconds(concert: Concert) : Array<string> {
+    return concert.hours ? concert.hours.map(hour => hour.slice(0,5)) : [];
+  }
+
   async showNewConcertDialog() {
     const dialogRef = this.dialog.open(ConcertEditDialogComponent, {
       width: '950px',

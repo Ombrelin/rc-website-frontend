@@ -1,4 +1,3 @@
-
 <mat-spinner *ngIf="loading"></mat-spinner>
 
 <div class="section-title">Concerts</div>
@@ -9,16 +8,31 @@
       <mat-card-subtitle>
         <div class="inline-icon">
           <mat-icon class="date-location-icon" *ngIf="concert.dateTime">today</mat-icon>
-          <span *ngIf="!concert.dateTime.includes('1970')">{{concert.dateTime | date:'EEEE dd MMMM y HH:mm':'':'fr' | titlecase}} <span *ngIf="!concert.dateSure" class="font-italic">- à préciser</span></span><br></div>
-        <span *ngIf="concert.dateTime.includes('1970')">Date à préciser</span>
+          <span
+            *ngIf="isDateDefinitive(concert)">{{concert.dateTime | date:'EEEE dd MMMM y':'':'fr' | titlecase}}
+            <span *ngIf="!concert.dateSure" class="font-italic">- à préciser</span></span><br></div>
+        <span *ngIf="!isDateDefinitive(concert)">Date à préciser</span>
         <br>
+        <div *ngIf="concert.hours?.length > 0">
+        <div  class="inline-icon">
+          <mat-icon class="date-location-icon" *ngIf="concert.location">schedule</mat-icon>
+          <mat-chip-list>
+              <mat-chip *ngFor="let hour of getHoursWithoutSeconds(concert);index as i;">
+                {{hour}}
+              </mat-chip>
+          </mat-chip-list>
+
+        </div>
+        <br>
+        </div>
         <div class="inline-icon">
           <mat-icon class="date-location-icon" *ngIf="concert.location">location_on</mat-icon>
           <span>{{concert.location}}  <span *ngIf="!concert.locationSure" class="font-italic">- à préciser</span></span>
-         <br>
+          <br>
         </div>
       </mat-card-subtitle>
-      <img *ngIf="concert.image"  class="card-img-top" mat-card-image [src]="'https://rc.arsenelapostolet.fr/api/Files/' + concert.image" alt="">
+      <img *ngIf="concert.image" class="card-img-top" mat-card-image
+           [src]="'https://rc.arsenelapostolet.fr/api/Files/' + concert.image" alt="">
 
       <mat-card-content>
         <p>
@@ -27,13 +41,20 @@
 
       </mat-card-content>
       <mat-card-actions>
-        <a *ngIf="concert.flyer !== '00000000-0000-0000-0000-000000000000'" mat-button [href]="'https://rc.arsenelapostolet.fr/api/Files/' + concert.flyer">FLYER</a>
+        <a *ngIf="concert.flyer !== '00000000-0000-0000-0000-000000000000'" mat-button
+           [href]="'https://rc.arsenelapostolet.fr/api/Files/' + concert.flyer">FLYER</a>
         <button *ngIf="concert.description" mat-button (click)="openConcertModale(concert)">INFOS</button>
-        <button *ngIf="logged" mat-icon-button (click)="editConcert(concert)"><mat-icon>edit</mat-icon></button>
-        <button *ngIf="logged" mat-icon-button (click)="deleteConcert(concert)"><mat-icon>delete</mat-icon></button>
+        <button *ngIf="logged" mat-icon-button (click)="editConcert(concert)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button *ngIf="logged" mat-icon-button (click)="deleteConcert(concert)">
+          <mat-icon>delete</mat-icon>
+        </button>
       </mat-card-actions>
     </mat-card>
   </div>
 </div>
-<button *ngIf="logged" class="mt-4" mat-raised-button color="primary" (click)="showNewConcertDialog()">Ajouter un Concert</button>
+<button *ngIf="logged" class="mt-4" mat-raised-button color="primary" (click)="showNewConcertDialog()">Ajouter un
+  Concert
+</button>
 
