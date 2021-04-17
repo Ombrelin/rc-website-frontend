@@ -50,7 +50,7 @@ export class ConcertEditDialogComponent implements OnInit {
     this.loading = true;
 
     let imageId;
-    if (!this.update && this.imageFile) {
+    if (!this.update || this.imageFile) {
       imageId = await this.files.upload(this.imageFile);
     } else {
       imageId = this.concert.image;
