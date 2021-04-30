@@ -80,7 +80,7 @@ export class ConcertEditDialogComponent implements OnInit {
       this.concert.dateTime = new Date(0).toISOString();
     }
 
-    this.concert.hours = [...this.concert.hours?.filter(hour => hour.length == 5).map(hour => `${hour}:00`), ...this.concert.hours?.filter(hour => hour.length > 5)];
+    this.concert.hours = this.concert.hours?.map(hour => hour.length == 5 ? `${hour}:00` : hour);
 
     if (!this.update) {
       this.concert = await this.concerts.createConcert(this.concert);
@@ -119,7 +119,6 @@ export class ConcertEditDialogComponent implements OnInit {
     const input = event.input;
     const value = event.value;
 
-    // Add our fruit
     if ((value || '').trim()) {
 
       if(!value.trim().match(/^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/)){
@@ -137,5 +136,9 @@ export class ConcertEditDialogComponent implements OnInit {
     if (input) {
       input.value = '';
     }
+  }
+
+  handleClickDeleteHour(hour: string) {
+    this.concert.hours = this.concert.hours.filter(h => hour !== h);
   }
 }

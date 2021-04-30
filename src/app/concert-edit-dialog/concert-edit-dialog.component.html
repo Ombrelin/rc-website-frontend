@@ -26,7 +26,7 @@
           <mat-chip *ngFor="let hour of getHoursWithoutSeconds(concert)" [selectable]="true"
                     [removable]="true" (removed)="remove(hour)">
             {{hour}}
-            <mat-icon matChipRemove *ngIf="true">cancel</mat-icon>
+            <mat-icon matChipRemove (click)="handleClickDeleteHour(hour)">cancel</mat-icon>
           </mat-chip>
           <input placeholder="Nouvelle heure au format HH:MM..."
                  [matChipInputFor]="chipList"
