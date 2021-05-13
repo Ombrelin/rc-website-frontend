@@ -30,6 +30,7 @@ export class ConcertEditDialogComponent implements OnInit {
       this.concert = data;
     } else {
       this.concert = new Concert();
+      this.concert.dateFormat = "EEEE dd MMMM y";
     }
   }
 
@@ -50,7 +51,7 @@ export class ConcertEditDialogComponent implements OnInit {
     this.loading = true;
 
     let imageId;
-    if (!this.update || this.imageFile) {
+    if (this.imageFile) {
       imageId = await this.files.upload(this.imageFile);
     } else {
       imageId = this.concert.image;
