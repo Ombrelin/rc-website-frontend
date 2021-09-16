@@ -45,7 +45,7 @@ img {
 }
 
 .disabled-card {
-  opacity: 50%;
+  opacity: 0.5;
 }
 
 @media screen and (max-width: 768px) {
