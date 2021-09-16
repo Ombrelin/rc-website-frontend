@@ -78,4 +78,11 @@ export class ConcertsComponent implements OnInit {
     await this.concertsService.deleteConcert(concert.id);
     this.concertsList = this.concertsList.filter(c => c.id !== concert.id);
   }
+
+  isDateInThePast(dateTime: string) :boolean {
+    console.log(new Date(dateTime));
+    console.log(new Date());
+    console.log(Boolean(new Date(dateTime) < new Date()));
+    return new Date(dateTime) < new Date();
+  }
 }

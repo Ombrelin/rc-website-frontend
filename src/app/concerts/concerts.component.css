@@ -44,6 +44,10 @@ img {
   object-position: 50% 50%;
 }
 
+.disabled-card {
+  opacity: 50%;
+}
+
 @media screen and (max-width: 768px) {
 
   .section-title {

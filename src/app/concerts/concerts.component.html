@@ -3,7 +3,7 @@
 <div class="section-title">Concerts</div>
 <div fxLayout="row wrap" fxLayoutGap.gt-sm="5%" fxLayoutGap="0" fxLayoutAlign="left">
   <div *ngFor="let concert of concertsList" fxFlex.gt-md="20%" fxFlex.gt-sm="25%" fxFlex.gt-xs="100%">
-    <mat-card class="article" class="mb-5">
+    <mat-card class="article mb-5" [ngClass]="{'disabled-card': isDateInThePast(concert.dateTime)}">
       <mat-card-title>{{concert.title}}</mat-card-title>
       <mat-card-subtitle>
         <div class="inline-icon">
