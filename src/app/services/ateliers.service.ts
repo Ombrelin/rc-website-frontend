@@ -34,7 +34,7 @@ export class AteliersService {
 export class Atelier {
   constructor(
     public id?: string,
-    public date?: Date,
+    public date?: string,
     public comment?: string
   ) {
   }

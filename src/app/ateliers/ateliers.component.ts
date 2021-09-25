@@ -20,7 +20,6 @@ export class AteliersComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     this.ateliersList = await this.service.getAteliers();
-    console.table(this.ateliersList);
   }
 
   async handleClickDeleteAtelier(id: string) {

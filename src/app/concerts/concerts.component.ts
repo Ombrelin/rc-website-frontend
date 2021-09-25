@@ -26,7 +26,6 @@ export class ConcertsComponent implements OnInit {
   async ngOnInit() {
     this.concertsList = await this.concertsService.getConcerts();
     this.loading = false;
-    console.table(this.concertsList);
   }
 
   openConcertModale(concert: Concert) {
@@ -80,9 +79,6 @@ export class ConcertsComponent implements OnInit {
   }
 
   isDateInThePast(dateTime: string) :boolean {
-    console.log(new Date(dateTime));
-    console.log(new Date());
-    console.log(Boolean(new Date(dateTime) < new Date()));
     return new Date(dateTime) < new Date();
   }
 }

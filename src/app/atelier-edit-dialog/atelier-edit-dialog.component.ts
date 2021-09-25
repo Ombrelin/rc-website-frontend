@@ -22,9 +22,7 @@ export class AtelierEditDialogComponent implements OnInit {
   }
 
   async onSubmit() {
-
     this.atelier = await this.service.createAtelier(this.atelier);
-
     this.dialogRef.close(this.atelier);
   }
 

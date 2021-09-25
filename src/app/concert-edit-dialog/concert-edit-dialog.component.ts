@@ -141,6 +141,5 @@ export class ConcertEditDialogComponent implements OnInit {
 
   handleClickDeleteHour(hour: string) {
     this.concert.hours = this.concert.hours.filter(h => !h.startsWith(hour));
-    console.table(this.concert.hours)
   }
 }
