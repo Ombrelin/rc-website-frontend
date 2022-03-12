@@ -7,29 +7,26 @@ name: CI
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
-
 jobs:
   FTP-Deploy-Action:
     name: FTP-Deploy-Action
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    
+
     - name: Use Node.js 12.x
       uses: actions/setup-node@v1
       with:
         node-version: '12.x'
-        
+
     - name: Build Project
       run: |
         npm install
         npm run build -- --prod
-        
+
     - name: List output files
       run: ls dist
-      
+
     - name: FTP-Deploy-Action
       uses: SamKirkland/FTP-Deploy-Action@4.0.0
       with:
@@ -37,11 +34,11 @@ jobs:
         username: jtksqfb
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: dist/rc-website/
-        server-dir: www/ 
+        server-dir: www/
         method: ftp
         port: 21
         ARGS: --delete
-        
+
     - name: Discord notificati  on
       env:
         DISCORD_WEBHOOK: ${{ secrets.WEBHOOK }}
