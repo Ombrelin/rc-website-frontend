@@ -5,6 +5,10 @@ header {
   background-position: center;
   background-size: 100%;
   padding-top: 8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .spacer {
@@ -42,7 +46,7 @@ header {
 
 .info {
   background-color: #E65100;
-  max-width: 40rem;
+  max-width: 80rem;
   text-align: justify;
   color: white;
   border-radius: 3px;
@@ -186,7 +190,7 @@ mat-card-actions {
 @media screen and (max-width: 768px) {
 
   .info {
-    max-width: 20rem;
+    display: none;
   }
 
   .section-title {
