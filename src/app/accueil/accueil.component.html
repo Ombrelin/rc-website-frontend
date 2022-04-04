@@ -287,8 +287,7 @@
 </section>
 <section #partenaires class="partenaires">
   <div class="section-title">Partenaires
-  </div>
-
+  <!--
   <mat-carousel
     timings="250ms ease-in"
     [autoplay]="true"
@@ -303,6 +302,14 @@
     [useMouseWheel]="false"
     orientation="ltr"
   >
+
+
+    <mat-carousel-slide
+      #matCarouselSlide
+      image="/assets/images/lavoir.png"
+      [hideOverlay]="false"
+    ></mat-carousel-slide>
+
     <mat-carousel-slide
       #matCarouselSlide
       image="/assets/images/conseil-general.png"
@@ -354,13 +361,7 @@
       image="/assets/images/logoBAS_2021.png"
       [hideOverlay]="false"
     ></mat-carousel-slide>
-
-    <mat-carousel-slide
-      #matCarouselSlide
-      image="/assets/images/lavoir.png"
-      [hideOverlay]="false"
-    ></mat-carousel-slide>
-
+-->
 
   </mat-carousel>
 </section>
