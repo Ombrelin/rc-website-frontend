@@ -24,38 +24,33 @@ import {MAT_DATE_LOCALE} from "@angular/material/core";
 // the second parameter 'fr' is optional
 registerLocaleData(localeFr, 'fr');
 @NgModule({
-  declarations: [
-    AppComponent,
-    AccueilComponent,
-    ConcertDialogComponent,
-    LoginDialogComponent,
-    AteliersComponent,
-    AtelierEditDialogComponent,
-    ConcertsComponent,
-    ConcertEditDialogComponent
-  ],
-  imports: [
-    FormsModule,
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MaterialModule,
-    FlexLayoutModule,
-    MarkdownModule.forRoot(),
-    MatCarouselModule.forRoot(),
-    ReactiveFormsModule,
-    HttpClientModule
-  ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: TokenInterceptor,
-    multi: true
-  },{ provide: MAT_DATE_LOCALE, useValue: 'fr-FR' }],
-  bootstrap: [AppComponent],
-  entryComponents: [
-    ConcertDialogComponent,
-    LoginDialogComponent,
-    AtelierEditDialogComponent
-  ]
+    declarations: [
+        AppComponent,
+        AccueilComponent,
+        ConcertDialogComponent,
+        LoginDialogComponent,
+        AteliersComponent,
+        AtelierEditDialogComponent,
+        ConcertsComponent,
+        ConcertEditDialogComponent
+    ],
+    imports: [
+        FormsModule,
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MaterialModule,
+        FlexLayoutModule,
+        MarkdownModule.forRoot(),
+        MatCarouselModule.forRoot(),
+        ReactiveFormsModule,
+        HttpClientModule
+    ],
+    providers: [{
+            provide: HTTP_INTERCEPTORS,
+            useClass: TokenInterceptor,
+            multi: true
+        }, { provide: MAT_DATE_LOCALE, useValue: 'fr-FR' }],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
