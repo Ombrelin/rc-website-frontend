@@ -23,7 +23,7 @@
     "@angular/platform-browser-dynamic": "~12.2.16",
     "@angular/router": "~12.2.16",
     "bootstrap": "^4.5.3",
-    "ngx-markdown": "^9.0.0",
+    "ngx-markdown": "^13.1.0",
     "roboto-fontface": "^0.10.0",
     "rxjs": "~6.5.5",
     "tslib": "^1.11.1",
