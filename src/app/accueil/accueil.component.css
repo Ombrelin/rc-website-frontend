@@ -4,11 +4,35 @@ header {
   background-attachment: fixed;
   background-position: center;
   background-size: 100%;
-  padding-top: 8rem;
+  padding-top: 4rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+#menu {
+  display: flex;
+}
+
+#responsive-menu {
+  display: none;
+}
+
+.atelier-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5%;
+}
+
+.atelier-description {
+  flex: 1 1 100%;
+  max-width: 70%;
+}
+
+.atelier-list {
+  flex: 1 1 100%;
+  max-width: 25%;
 }
 
 .spacer {
@@ -27,7 +51,7 @@ header {
 
 
 .logo {
-  width: 20rem;
+  width: 16rem;
   border-radius: 3px;
 }
 
@@ -129,6 +153,29 @@ p {
   background-color: #E3F2FD;
 }
 
+.tarif-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5%;
+  justify-content: center;
+}
+
+.contact-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5%;
+  justify-content: center;
+}
+
+.contact-layout > mat-card {
+  flex: 1 1 100%;
+  max-width: 40%;
+}
+
+.tarif-layout > mat-card {
+  flex: 1 1 100%;
+  max-width: 30%;
+}
 
 .tarif-text,.tarif-text-small,.tarif-text-x-small {
   font-weight: lighter !important;
@@ -189,6 +236,14 @@ mat-card-actions {
 
 @media screen and (max-width: 768px) {
 
+  #menu {
+    display: none;
+  }
+
+  #responsive-menu {
+    display: flex;
+  }
+
   .info {
     display: none;
   }
@@ -218,4 +273,20 @@ mat-card-actions {
   }
 
 
+}
+
+.partenaires-layout {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10% 15%;
+}
+
+.partenaires-layout > img {
+  height: 8rem;
+}
+
+.slider-image {
+  height: 4rem;
 }

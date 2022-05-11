@@ -1,28 +1,27 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MaterialModule} from './material.module';
-import { AccueilComponent } from './accueil/accueil.component';
-import {FlexLayoutModule} from '@angular/flex-layout';
+import {AccueilComponent} from './accueil/accueil.component';
 import {ConcertDialogComponent} from './concert-dialog/concert-dialog.component';
 import {MarkdownModule} from 'ngx-markdown';
-import { MatCarouselModule } from '@ngmodule/material-carousel';
 import {LoginDialogComponent} from './login-dialog/login-dialog.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AteliersComponent} from './ateliers/ateliers.component';
 import {AtelierEditDialogComponent} from './atelier-edit-dialog/atelier-edit-dialog.component';
 import {TokenInterceptor} from './security/token.interceptor';
-import { ConcertsComponent } from './concerts/concerts.component';
-import { ConcertEditDialogComponent } from './concert-edit-dialog/concert-edit-dialog.component';
-import { registerLocaleData } from '@angular/common';
+import {ConcertsComponent} from './concerts/concerts.component';
+import {ConcertEditDialogComponent} from './concert-edit-dialog/concert-edit-dialog.component';
+import {registerLocaleData} from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import {MAT_DATE_LOCALE} from "@angular/material/core";
+
 // the second parameter 'fr' is optional
 registerLocaleData(localeFr, 'fr');
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,9 +39,7 @@ registerLocaleData(localeFr, 'fr');
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    FlexLayoutModule,
     MarkdownModule.forRoot(),
-    MatCarouselModule.forRoot(),
     ReactiveFormsModule,
     HttpClientModule
   ],
@@ -50,12 +47,9 @@ registerLocaleData(localeFr, 'fr');
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,
     multi: true
-  },{ provide: MAT_DATE_LOCALE, useValue: 'fr-FR' }],
-  bootstrap: [AppComponent],
-  entryComponents: [
-    ConcertDialogComponent,
-    LoginDialogComponent,
-    AtelierEditDialogComponent
-  ]
+  }, {provide: MAT_DATE_LOCALE, useValue: 'fr-FR'}
+  ],
+  bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
