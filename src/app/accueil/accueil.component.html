@@ -1,7 +1,7 @@
 <mat-toolbar color="primary" class="main-menu">
   <span>Rencontres Contemporaines</span>
   <span class="spacer"></span>
-  <div fxShow="true" fxHide.lt-md="true">
+  <div id="menu">
     <button mat-button (click)="header.scrollIntoView({behavior: 'smooth'})">Accueil</button>
     <button mat-button (click)="intro.scrollIntoView({behavior: 'smooth'})">A propos</button>
     <button mat-button (click)="concerts.scrollIntoView({behavior: 'smooth'})">Concerts</button>
@@ -9,15 +9,11 @@
     <button mat-button (click)="enpratique.scrollIntoView({behavior: 'smooth'})">En pratique</button>
     <!--<button mat-button>Fils rouges</button>-->
     <button mat-button (click)="partenaires.scrollIntoView({behavior: 'smooth'})">Partenaires et soutiens</button>
-
-    <div fxShow="true" fxHide.gt-sm="true">
-      <a href="#" (click)="sidenav.toggle()">Show Side Menu</a>
-    </div>
   </div>
 </mat-toolbar>
-<mat-sidenav-container fxFlexFill class="example-container">
-  <mat-sidenav #sidenav fxLayout="column" mode="side" opened="false">
-    <div fxLayout="column" fxShow="true" fxHide.gt-sm="true">
+<mat-sidenav-container id="#responsive-menu">
+  <mat-sidenav #sidenav mode="side" opened="false">
+    <div>
       <a (click)="sidenav.toggle()" href="#" mat-button>Close</a>
       <button mat-button (click)="header.scrollIntoView({behavior: 'smooth'})">Accueil</button>
       <button mat-button (click)="intro.scrollIntoView({behavior: 'smooth'})">A propos</button>
@@ -31,7 +27,7 @@
 </mat-sidenav-container>
 
 
-<header #header fxLayout="column wrap" fxLayoutAlign="center center">
+<header #header>
   <div>
     <img class="logo" (click)="showLoginDialog()" src="/assets/images/logo.jpg" alt="logo rc"/>
   </div>
@@ -42,49 +38,39 @@
       et XXI°, créations, reprises, dialogue entre classiques et oeuvres nouvelles.
     </p>
   </div>
-  <div class="info">
+  <div class="container info">
+    <div class="row">
+      <div class="info-icon-wrapper col-md-1">
+        <mat-icon class="info-icon">info</mat-icon>
+      </div>
 
-    <div class="info-icon-wrapper">
-      <mat-icon class="info-icon">info</mat-icon>
-    </div>
+      <div class="col-md-11">
+        <p>
+          <span class="font-italic">Avril 2022</span><br>
 
-    <div>
-      <p>
-        <span class="font-italic">Janvier 2022</span><br>
+          <span class="font-italic">28°saison</span><br>
+          Les Rencontres vous invitent à poursuivre cette découverte des compositeurs d’aujourd’hui, à partager
+          l’enthousiasme des interprètes qui savent les inspirer.
+          Le 1er avril au Monastier-sur-Gazeille, l’ensemble Hélios - quatuor pour flûte et cordes proposera une
+          alternance de solos et quatuors, œuvres de Luciano Berio, Elise Bertrand, Philippe Hersant et Violeta Dinescu.
+          Le 7 avril, nous retrouverons le Lavoir Public avec « Three voices » de Morton Feldman.
+          Le 10 mai, au siège des Rencontres, à Lyon, récital violon piano en partenariat avec l’Ensemble Orchestral
+          Contemporain : nous aurons la chance d’entendre le concerto à la mémoire d’un ange d’Alban Berg, interprété
+          par Gaël Rassaert et Gregory Ballesteros.
 
-        <span class="font-italic">28°saison</span><br>
-      <p>Les Rencontres vous invitent à poursuivre cette découverte des compositeurs d’aujourd’hui, à partager
-        l’enthousiasme des interprètes qui savent les inspirer.
-        Le 1er avril au Monastier-sur-Gazeille, l’ensemble Hélios - quatuor pour flûte et cordes proposera une
-        alternance de solos et quatuors, œuvres de Luciano Berio, Elise Bertrand, Philippe Hersant et Violeta Dinescu.
-        Le 7 avril, nous retrouverons le Lavoir Public avec «Three voices» de Morton Feldman.</p>
+          En septembre, en un lieu à confirmer, une jeune formation très originale, « L’impolie » – saxophone,
+          accordéon, guitare électrique – nous plongera dans des mondes sonores contrastés, entre œuvres écrites et
+          improvisations, pièces de A.Markeas, A.Singier .
+          A noter : une session d’automne autour de la voix avec le trio Déclic, le quintette vocal « Rituels », atelier
+          d’écoute et stage prévus dans la thématique de ces concerts.
+          A guetter : Vincent Lhermet, accordéoniste, nous proposera un récital de créations , commandes qu’il a passées
+          à plusieurs compositeurs d’aujourd’hui , au Lavoir Public encore.
 
-      <p>
-        Le 10 mai, au siège des Rencontres, à Lyon, récital violon piano en partenariat avec l’Ensemble Orchestral
-        Contemporain : nous aurons la chance d’entendre le concerto à la mémoire d’un ange d’Alban Berg, interprété par
-        Gaël Rassaert et Gregory Ballesteros.
-      </p>
-
-      <p>
-        En septembre, en un lieu à confirmer, une jeune formation très originale, «L’impolie» – saxophone, accordéon,
-        guitare électrique – nous plongera dans des mondes sonores contrastés, entre œuvres écrites et improvisations,
-        pièces de A.Markeas, A.Singier .
-      </p>
-      <p>
-        A noter : une session d’automne autour de la voix avec le trio Déclic, le quintette vocal «Rituels», atelier
-        d’écoute et stage prévus dans la thématique de ces concerts.
-      </p>
-      <p>
-        A guetter : Vincent Lhermet, accordéoniste, nous proposera un récital de créations , commandes qu’il a passées à
-        plusieurs compositeurs d’aujourd’hui , au Lavoir Public encore.
-      </p>
-
-      <p>En vous espérant nombreux à nous suivre vers ces nouvelles perspectives !</p>
-
-
-      <span
-        class="font-italic">Informez-vous sur le site, faites savoir autour de vous et venez profiter de tout ça!
-      </span>
+          En vous espérant nombreux à nous suivre vers ces nouvelles perspectives !
+          <span
+            class="font-italic">Informez-vous sur le site, faites savoir autour de vous et venez profiter de tout ça!</span>
+        </p>
+      </div>
     </div>
   </div>
 </header>
@@ -115,31 +101,40 @@
   </div>
   <span>par Philippe Gouttenoire, compositeur, « dégustation musicale » tout public (=savant ou ignorant !)</span>
   <br><br><br><br>
-  <div fxLayout="row wrap" fxLayoutGap="5%" fxLayoutAlign="left">
-    <div fxFlex.gt-md="70%" fxFlex.gt-sm="100%">
+  <div class="atelier-layout">
+    <div class="atelier-description">
       <h3>Des ateliers d'écoute ?</h3>
-
       <p>Toujours menés par des compositeurs, les ateliers proposent une écoute en profondeur. Ils furent inaugurés par
         Robert Pascal il y a quelques années, Christine Mennesson prit le relais en 2014, puis Philippe Gouttenoire en
-        2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022… </p>
-      <p>Invités 2022: Moussorgski, Ligeti ; les suivants ? inconnus encore, la surprise étant un principe de base des
-        ateliers.</p>
-      <p>Et avant ? Monteverdi, Debussy, Chopin, Bartok, Mozart, Ravel, Bach, Dutilleux, Mahler, Schubert, Berg, Debussy
-        encore, Beethoven, Stravinski, Gesualdo, Scriabine, Brahms, Webern, Bach et la notion du temps, les Canons,
-        Antoine de Bertrand, Crumb, Schumann</p>
+        2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022…</p>
       <p>
-        Venez et parlez-en autour de vous. Rendez vous au siège lyonnais des Rencontres Contemporaines, 4 place
-        Chazette,
-        69001 Lyon Les inscriptions se prennent par sms ou message au <a href="tel:+33670429832">06 70 42 98 32</a> ou
-        au <a href="tel:+3360622622060">06 22 62 20 60</a> Vous pouvez
-        aussi venir directement, il y aura toujours une chaise pour vous !
+        Invités 2022: Moussorgski, Ligeti ; les suivants ? inconnus encore, la surprise étant un principe de base des
+        ateliers.
       </p>
-      <p>NB - Nous avons un matériel d’écoute digne de vos oreilles</p>
+      <p>
+        Et avant ? Monteverdi, Debussy, Chopin, Bartok, Mozart, Ravel, Bach, Dutilleux, Mahler, Schubert, Berg, Debussy
+        encore, Beethoven, Stravinski, Gesualdo, Scriabine, Brahms, Webern, Bach et la notion du temps, les Canons,
+        Antoine de Bertrand, Crumb, Schumann
+      </p>
+      <p>
 
-      <p>La participation est fixée à 13 € la séance, gratuit pour les étudiants.</p>
+        Venez et parlez-en autour de vous. Rendez vous au siège lyonnais des Rencontres Contemporaines, 4 place
+        Chazette, 69001 Lyon
+        Les inscriptions se prennent par sms ou message au <a href="tel:+330670429832">06 70 42 98 32</a> ou au <a
+        href="+330622622060">06 22 62 20 60</a>
+
+        Vous pouvez aussi venir directement, il y aura toujours une chaise pour vous !
+
+        NB - Nous avons un matériel d’écoute digne de vos oreilles
+      </p>
+
+      <p>
+        La participation est fixée à 13 € la séance, gratuit pour les étudiants
+      </p>
 
     </div>
-    <div fxFlex.gt-md="25%" fxFlex.gt-sm="100%">
+    <div class="atelier-list">
+
       <app-ateliers [logged]="logged"></app-ateliers>
 
     </div>
@@ -149,9 +144,9 @@
   <div class="section-title">En pratique
   </div>
   <h2>Tarifs : </h2>
-  <div fxLayout="row wrap" fxLayoutGap.gt-md="10%" fxLayoutGap.xs="0" fxLayout.gt-xs="100%" fxLayoutAlign="center">
+  <div class="tarif-layout">
 
-    <mat-card fxFlex.gt-md="30%" fxFlex.xs="100%" class="article">
+    <mat-card>
       <mat-card-title class="inline-icon"><span>Plein Tarif &nbsp;</span>
         <mat-icon>credit_card</mat-icon>
       </mat-card-title>
@@ -159,12 +154,12 @@
         &nbsp;
       </mat-card-subtitle>
 
-      <mat-card-content fxLayout="column" fxLayoutAlign="center center">
+      <mat-card-content>
         <span class="tarif-text">12€</span>
       </mat-card-content>
     </mat-card>
 
-    <mat-card fxFlex.gt-md="30%" fxFlex.xs="100%" class="article">
+    <mat-card>
       <mat-card-title class="inline-icon">
         <span>Tarif réduit &nbsp;</span>
         <mat-icon>toll</mat-icon>
@@ -173,12 +168,12 @@
         Adulte avec enfant, étudiant, chomeur
       </mat-card-subtitle>
 
-      <mat-card-content fxLayout="column" fxLayoutAlign="center center">
+      <mat-card-content>
         <span class="tarif-text">7€</span>
       </mat-card-content>
     </mat-card>
 
-    <mat-card fxFlex.gt-md="30%" fxFlex.xs="100%" class="article">
+    <mat-card>
       <mat-card-title class="inline-icon">
         <span>Gratuit &nbsp;</span>
         <mat-icon>redeem</mat-icon>
@@ -187,7 +182,7 @@
         Moins de 18 ans & PassCulture Jeune
       </mat-card-subtitle>
 
-      <mat-card-content fxLayout="column" fxLayoutAlign="center center">
+      <mat-card-content>
         <span class="tarif-text">0€</span>
       </mat-card-content>
     </mat-card>
@@ -196,21 +191,21 @@
   </div>
 
   <h2>Tarifs spécifiques à certain lieux : </h2>
-  <div fxLayout="row wrap" fxLayoutGap.gt-md="10%" fxLayoutGap.xs="0" fxLayout.gt-xs="100%" fxLayoutAlign="center">
+  <div class="tarif-layout">
 
-    <mat-card fxFlex.gt-md="30%" fxFlex.xs="100%" class="article">
+    <mat-card>
       <mat-card-title class="inline-icon"><span>A l'hôpital</span>
       </mat-card-title>
       <mat-card-subtitle>
         &nbsp;
       </mat-card-subtitle>
 
-      <mat-card-content fxLayout="column" fxLayoutAlign="center center">
+      <mat-card-content>
         <span class="tarif-text-small">Libre Participation</span>
       </mat-card-content>
     </mat-card>
 
-    <mat-card fxFlex.gt-md="30%" fxFlex.xs="100%" class="article">
+    <mat-card>
       <mat-card-title class="inline-icon">
         <span>La Voir Au Public</span>
       </mat-card-title>
@@ -218,7 +213,7 @@
 
       </mat-card-subtitle>
 
-      <mat-card-content fxLayout="column" fxLayoutAlign="center center">
+      <mat-card-content>
         <span class="tarif-text-small">3€, 6€ ou 9€</span>
         <span class="tarif-text-x-small"> + 2 € d’adhésion Le La Voir Au Public</span>
       </mat-card-content>
@@ -227,7 +222,7 @@
       </mat-card-actions>
     </mat-card>
 
-    <mat-card fxFlex.gt-md="30%" fxFlex.xs="100%" class="article">
+    <mat-card>
       <mat-card-title class="inline-icon">
         <span>Atelier &nbsp;</span>
       </mat-card-title>
@@ -246,10 +241,9 @@
 
   <h2>Contact :</h2>
 
-  <div fxLayout="row wrap" fxLayoutGap.gt-md="10%" fxLayoutGap.xs="0" fxLayout.gt-xs="100%"
-       fxLayoutAlign="space-between">
+  <div class="contact-layout">
 
-    <mat-card fxFlex.gt-md="40%" fxFlex.xs="100%" class="article email" fxFlex>
+    <mat-card class="article email">
       <mat-card-title class="inline-icon"><span>Mail &nbsp;</span>
         <mat-icon>email</mat-icon>
       </mat-card-title>
