@@ -14,7 +14,7 @@ export class ConcertsComponent implements OnInit {
   @Input()
   public logged: boolean;
 
-  public concertsList: Array<Concert>;
+  public concerts: Array<Concert>;
 
   public loading = true;
 
@@ -24,8 +24,19 @@ export class ConcertsComponent implements OnInit {
   }
 
   async ngOnInit() {
-    this.concertsList = await this.concertsService.getConcerts();
+    this.concerts = await this.concertsService.getConcerts();
+    console.info(this.concerts);
     this.loading = false;
+  }
+
+  get upcomingConcerts(){
+    return (this.concerts ?? [])
+      .filter(concert => !this.isDateInThePast(concert.dateTime));
+  }
+
+  get pastConcerts(){
+    return (this.concerts ?? [])
+      .filter(concert => this.isDateInThePast(concert.dateTime));
   }
 
   openConcertModale(concert: Concert) {
@@ -53,7 +64,7 @@ export class ConcertsComponent implements OnInit {
 
     const concert = await dialogRef.afterClosed().toPromise();
     if (concert) {
-      this.concertsList.push(concert);
+      this.concerts.push(concert);
     }
   }
 
@@ -68,14 +79,14 @@ export class ConcertsComponent implements OnInit {
     await dialogRef.afterClosed().toPromise();
 
     this.loading = true;
-    this.concertsList = await this.concertsService.getConcerts();
+    this.concerts = await this.concertsService.getConcerts();
     this.loading = false;
 
   }
 
   async deleteConcert(concert: Concert) {
     await this.concertsService.deleteConcert(concert.id);
-    this.concertsList = this.concertsList.filter(c => c.id !== concert.id);
+    this.concerts = this.concerts.filter(c => c.id !== concert.id);
   }
 
   isDateInThePast(dateTime: string) :boolean {

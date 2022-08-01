@@ -287,6 +287,10 @@ mat-card-actions {
   height: 8rem;
 }
 
+.partenaires-layout > img.big {
+  height: 12rem;
+}
+
 .slider-image {
   height: 4rem;
 }
