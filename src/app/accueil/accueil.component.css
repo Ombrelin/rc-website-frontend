@@ -78,11 +78,13 @@ header {
 }
 
 .info-icon {
-  font-size: 5rem;
+  transform: scale(2);
 }
 
 .info-icon-wrapper {
-  width: 30rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .section-title {
