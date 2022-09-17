@@ -21,8 +21,8 @@ jobs:
 
     - name: Build Project
       run: |
-        npm install
-        npm run build -- --prod
+        npm install --force
+        npm run build --prod
 
     - name: List output files
       run: ls dist
