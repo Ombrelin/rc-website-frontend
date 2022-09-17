@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {UntypedFormControl, UntypedFormGroup, Validators} from '@angular/forms';
 import {LoginService} from '../services/login.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {MatDialogRef} from '@angular/material/dialog';
@@ -11,10 +11,10 @@ import {MatDialogRef} from '@angular/material/dialog';
 })
 export class LoginDialogComponent implements OnInit {
 
-  loginForm = new FormGroup(
+  loginForm = new UntypedFormGroup(
     {
-      login: new FormControl('', Validators.required),
-      password: new FormControl('', Validators.required)
+      login: new UntypedFormControl('', Validators.required),
+      password: new UntypedFormControl('', Validators.required)
     }
   );
 
