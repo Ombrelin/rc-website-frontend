@@ -289,6 +289,14 @@ mat-card-actions {
     font-size: 2rem;
   }
 
+  .phone mat-card-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .phone mat-card-actions a {
+     margin: 0;
+  }
 
 }
 
