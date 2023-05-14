@@ -2,3 +2,7 @@
   height: auto;
   padding: 1rem;
 }
+
+.mat-standard-chip {
+  width: 20rem !important;
+}

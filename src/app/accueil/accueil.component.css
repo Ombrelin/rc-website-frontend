@@ -113,9 +113,6 @@ header {
 }
 
 
-
-
-
 .section-actions {
   width: 100%;
   padding: 1.5vw;
@@ -179,7 +176,7 @@ p {
   max-width: 30%;
 }
 
-.tarif-text,.tarif-text-small,.tarif-text-x-small {
+.tarif-text, .tarif-text-small, .tarif-text-x-small {
   font-weight: lighter !important;
   color: gray;
   font-size: 5rem;
@@ -238,6 +235,19 @@ mat-card-actions {
 
 @media screen and (max-width: 768px) {
 
+  .tarif-layout > mat-card, .contact-layout > mat-card, .atelier-description {
+    max-width: 100%;
+    min-height: 17rem;
+  }
+
+  .tarif-layout, .contact-layout {
+    flex-direction: column;
+  }
+
+  .atelier-layout {
+    flex-direction: column;
+  }
+
   #menu {
     display: none;
   }
@@ -267,7 +277,12 @@ mat-card-actions {
   }
 
   .phone {
-    height: 15rem;
+    min-height: 20rem;
+  }
+
+  .phone mat-card-actions {
+    flex-direction: column;
+    gap: .5rem;
   }
 
   .info-icon {

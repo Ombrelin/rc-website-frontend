@@ -66,4 +66,12 @@ img {
   .section-title {
     font-size: 3rem;
   }
+
+  .concerts-container {
+    flex-direction: column;
+  }
+
+  .concert-card-wrapper {
+    max-width: 100%;
+  }
 }
