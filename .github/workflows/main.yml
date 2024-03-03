@@ -28,18 +28,17 @@ jobs:
       run: ls dist
 
     - name: FTP-Deploy-Action
-      uses: SamKirkland/FTP-Deploy-Action@4.0.0
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
         server: ftp.cluster029.hosting.ovh.net
         username: jtksqfb
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: dist/rc-website/
         server-dir: www/
-        method: ftp
         port: 21
-        ARGS: --delete
+        dangerous-clean-slate: true
 
-    - name: Discord notificati  on
+    - name: Discord notification
       env:
         DISCORD_WEBHOOK: ${{ secrets.WEBHOOK }}
       uses: Ilshidur/action-discord@master
