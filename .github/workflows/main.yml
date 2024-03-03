@@ -22,7 +22,7 @@ jobs:
     - name: Build Project
       run: |
         npm install --force
-        npm run build --localize --optimization
+        npm run build --localize
 
     - name: List output files
       run: ls dist
