@@ -20,7 +20,7 @@ import localeFr from '@angular/common/locales/fr';
 import localeFrExtra from '@angular/common/locales/extra/fr';
 import {MAT_DATE_LOCALE} from "@angular/material/core";
 
-registerLocaleData(localeFr, "fr-FR", localeFrExtra);
+
 
 @NgModule({
   declarations: [
@@ -52,4 +52,9 @@ registerLocaleData(localeFr, "fr-FR", localeFrExtra);
   bootstrap: [AppComponent]
 })
 export class AppModule {
+
+  constructor() {
+    registerLocaleData(localeFr, "fr-FR", localeFrExtra);
+  }
+
 }
