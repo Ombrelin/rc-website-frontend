@@ -22,7 +22,7 @@ jobs:
     - name: Build Project
       run: |
         npm install --force
-        npm run build --prod
+        ng build
 
     - name: List output files
       run: ls dist
@@ -36,7 +36,6 @@ jobs:
         local-dir: dist/rc-website/
         server-dir: www/
         port: 21
-        dangerous-clean-slate: true
 
     - name: Discord notification
       env:
