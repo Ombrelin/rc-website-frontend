@@ -92,4 +92,31 @@ export class ConcertsComponent implements OnInit {
   isDateInThePast(dateTime: string) :boolean {
     return new Date(dateTime) < new Date();
   }
+
+
+
+  formattedDateTime(concert: Concert) {
+    const date = new Date(concert.dateTime);
+    const utcDate = new Date(
+      Date.UTC(
+        date.getFullYear(),
+        date.getMonth(),
+        date.getDate(),
+        date.getHours(),
+        date.getMinutes()
+      )
+    )
+
+    const dateOptions: Intl.DateTimeFormatOptions = {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    };
+
+    const formattedDate = Intl.DateTimeFormat(Intl.DateTimeFormat().resolvedOptions().locale, dateOptions).format(utcDate)
+    console.log(formattedDate)
+    return `${formattedDate}`
+
+  }
 }

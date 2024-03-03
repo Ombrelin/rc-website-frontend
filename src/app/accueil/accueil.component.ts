@@ -1,9 +1,6 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {Concert, ConcertsService} from '../services/concerts.service';
+import {Component, ViewChild} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
-import {ConcertDialogComponent} from '../concert-dialog/concert-dialog.component';
 import {LoginDialogComponent} from '../login-dialog/login-dialog.component';
-import {FormControl, Validators} from '@angular/forms';
 
 
 @Component({

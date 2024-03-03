@@ -5,12 +5,12 @@
   <div *ngFor="let concert of upcomingConcerts" class="concert-card-wrapper">
     <mat-card class="article mb-5">
       <mat-card-header>
-      <mat-card-title>{{concert.title}}</mat-card-title>
+      <mat-card-title>{{concert.title  | titlecase }}</mat-card-title>
       <mat-card-subtitle>
         <div class="inline-icon">
           <mat-icon class="date-location-icon" *ngIf="concert.dateTime">today</mat-icon>
           <span
-            *ngIf="isDateDefinitive(concert)">{{concert.dateTime | date:concert.dateFormat:'':'fr' | titlecase}}
+            *ngIf="isDateDefinitive(concert)">{{formattedDateTime(concert)}}
             <span *ngIf="!concert.dateSure" class="font-italic">- à préciser</span></span><br></div>
         <span *ngIf="!isDateDefinitive(concert)">Date à préciser</span>
         <br>

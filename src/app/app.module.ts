@@ -15,10 +15,6 @@ import {AtelierEditDialogComponent} from './atelier-edit-dialog/atelier-edit-dia
 import {TokenInterceptor} from './security/token.interceptor';
 import {ConcertsComponent} from './concerts/concerts.component';
 import {ConcertEditDialogComponent} from './concert-edit-dialog/concert-edit-dialog.component';
-import {registerLocaleData} from '@angular/common';
-import localeFr from '@angular/common/locales/fr';
-import localeFrExtra from '@angular/common/locales/extra/fr';
-
 
 
 @NgModule({
@@ -51,9 +47,4 @@ import localeFrExtra from '@angular/common/locales/extra/fr';
   bootstrap: [AppComponent]
 })
 export class AppModule {
-
-  constructor() {
-    registerLocaleData(localeFr, "fr-FR", localeFrExtra);
-  }
-
 }

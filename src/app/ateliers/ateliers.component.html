@@ -2,7 +2,7 @@
 <mat-chip-listbox class="mat-chip-list-stacked" aria-label="Date">
   <mat-chip-option *ngFor="let atelier of ateliersList" selectable="false" class="row">
 
-    <div class="col-md-10 mt-n2">{{atelier.date | date:'EEEE dd MMMM y HH:mm':'':'fr' | titlecase}}
+    <div class="col-md-10 mt-n2">{{formatAtelierDate(atelier.date)}}
       <span *ngIf="atelier.comment" class="font-italic"> <br> {{atelier.comment}}</span>
     </div>
     <button class="col-md-2 mt-n3" *ngIf="logged" mat-icon-button (click)="handleClickDeleteAtelier(atelier.id)">

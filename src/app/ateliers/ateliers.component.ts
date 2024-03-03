@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Atelier, AteliersService} from '../services/ateliers.service';
 import {MatDialog} from '@angular/material/dialog';
 import {AtelierEditDialogComponent} from '../atelier-edit-dialog/atelier-edit-dialog.component';
+import {formatDate} from "@angular/common";
 
 @Component({
   selector: 'app-ateliers',
@@ -39,5 +40,32 @@ export class AteliersComponent implements OnInit {
     if (newAtelier) {
       this.ateliersList.push(newAtelier);
     }
+  }
+
+    protected readonly formatDate = formatDate;
+
+  formatAtelierDate(dateString: string) {
+    const date = new Date(dateString);
+    const utcDate = new Date(
+      Date.UTC(
+        date.getFullYear(),
+        date.getMonth(),
+        date.getDate(),
+        date.getHours(),
+        date.getMinutes()
+      )
+    )
+
+    const dateOptions: Intl.DateTimeFormatOptions = {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    };
+
+    const formattedDate = Intl.DateTimeFormat(Intl.DateTimeFormat().resolvedOptions().locale, dateOptions).format(utcDate)
+    console.log(formattedDate)
+    return `${formattedDate}`
+
   }
 }
