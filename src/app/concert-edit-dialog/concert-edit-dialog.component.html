@@ -1,5 +1,8 @@
-<h2>{{modelTitle}}</h2>
+
+<mat-dialog-content>
 <div class="container">
+  <h2>{{modelTitle}}</h2>
+
   <div class="row">
     <div class="col-md-6">
 
@@ -22,18 +25,18 @@
 
       <mat-form-field appearance="fill">
         <mat-label>Ajouter une ou plusieurs heures</mat-label>
-        <mat-chip-list #chipList aria-label="Fruit selection">
-          <mat-chip *ngFor="let hour of getHoursWithoutSeconds(concert)" [selectable]="true"
+        <mat-chip-grid #chipList aria-label="Fruit selection">
+          <mat-chip-option *ngFor="let hour of getHoursWithoutSeconds(concert)" [selectable]="true"
                     [removable]="true" (removed)="remove(hour)">
             {{hour}}
             <mat-icon matChipRemove (click)="handleClickDeleteHour(hour)">cancel</mat-icon>
-          </mat-chip>
+          </mat-chip-option>
           <input placeholder="Nouvelle heure au format HH:MM..."
                  [matChipInputFor]="chipList"
                  [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
                  [matChipInputAddOnBlur]="true"
                  (matChipInputTokenEnd)="add($event)">
-        </mat-chip-list>
+        </mat-chip-grid>
       </mat-form-field>
 
       <mat-label>Date sûre</mat-label><br>
@@ -80,7 +83,8 @@
     </div>
   </div>
 </div>
-
-
-<button *ngIf="!loading" mat-raised-button color="primary" (click)="onSubmit()">Valider</button>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+<button *ngIf="!loading" mat-raised-button color="primary" mat-dialog-close="true" (click)="onSubmit()">Valider</button>
+</mat-dialog-actions>
 <mat-spinner *ngIf="loading" diameter="16"></mat-spinner>

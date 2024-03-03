@@ -17,10 +17,10 @@ import {ConcertsComponent} from './concerts/concerts.component';
 import {ConcertEditDialogComponent} from './concert-edit-dialog/concert-edit-dialog.component';
 import {registerLocaleData} from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
+import localeFrExtra from '@angular/common/locales/extra/fr';
 import {MAT_DATE_LOCALE} from "@angular/material/core";
 
-// the second parameter 'fr' is optional
-registerLocaleData(localeFr, 'fr');
+registerLocaleData(localeFr, "fr-FR", localeFrExtra);
 
 @NgModule({
   declarations: [

@@ -29,7 +29,7 @@ export class ConcertsComponent implements OnInit {
     this.loading = false;
   }
 
-  get upcomingConcerts(){
+  get upcomingConcerts(): Concert[]{
     return (this.concerts ?? [])
       .filter(concert => !this.isDateInThePast(concert.dateTime));
   }

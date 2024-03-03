@@ -206,6 +206,10 @@ a {
   color: #212121;
 }
 
+.d-flex{
+  gap:0.5rem;
+}
+
 .legend {
   text-align: center;
   font-style: italic;
@@ -218,6 +222,10 @@ a {
 mat-card {
   padding-bottom: 3vw;
   margin-bottom: 3vw;
+}
+
+mat-card-content {
+  min-height: 10rem;
 }
 
 mat-card img {

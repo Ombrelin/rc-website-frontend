@@ -4,6 +4,7 @@
 <div class="concerts-container">
   <div *ngFor="let concert of upcomingConcerts" class="concert-card-wrapper">
     <mat-card class="article mb-5">
+      <mat-card-header>
       <mat-card-title>{{concert.title}}</mat-card-title>
       <mat-card-subtitle>
         <div class="inline-icon">
@@ -16,11 +17,11 @@
         <div *ngIf="concert.hours?.length > 0">
         <div  class="inline-icon">
           <mat-icon class="date-location-icon" *ngIf="concert.location">schedule</mat-icon>
-          <mat-chip-list>
-              <mat-chip *ngFor="let hour of getHoursWithoutSeconds(concert);index as i;">
+          <mat-chip-listbox>
+              <mat-chip-option *ngFor="let hour of getHoursWithoutSeconds(concert);index as i;" selectable="false">
                 {{hour}}
-              </mat-chip>
-          </mat-chip-list>
+              </mat-chip-option>
+          </mat-chip-listbox>
 
         </div>
         <br>
@@ -31,8 +32,8 @@
           <br>
         </div>
       </mat-card-subtitle>
-      <img *ngIf="concert.image" class="card-img-top" mat-card-image
-           [src]="'https://rc.arsenelapostolet.fr/api/Files/' + concert.image" alt="">
+      </mat-card-header>
+      <img *ngIf="concert.image" mat-card-image [src]="'https://rc.arsenelapostolet.fr/api/Files/' + concert.image" alt="">
 
       <mat-card-content>
         <p>
@@ -68,23 +69,24 @@
   <div class="concerts-container">
     <div *ngFor="let concert of pastConcerts" class="concert-card-wrapper">
       <mat-card class="article mb-5">
+        <mat-card-header>
         <mat-card-title>{{concert.title}}</mat-card-title>
         <mat-card-subtitle>
           <div class="inline-icon">
             <mat-icon class="date-location-icon" *ngIf="concert.dateTime">today</mat-icon>
             <span
-              *ngIf="isDateDefinitive(concert)">{{concert.dateTime | date:concert.dateFormat:'':'fr' | titlecase}}
+              *ngIf="isDateDefinitive(concert)">{{concert.dateTime | date:concert.dateFormat:'':'fr-FR' | titlecase}}
               <span *ngIf="!concert.dateSure" class="font-italic">- à préciser</span></span><br></div>
           <span *ngIf="!isDateDefinitive(concert)">Date à préciser</span>
           <br>
           <div *ngIf="concert.hours?.length > 0">
             <div  class="inline-icon">
               <mat-icon class="date-location-icon" *ngIf="concert.location">schedule</mat-icon>
-              <mat-chip-list>
-                <mat-chip *ngFor="let hour of getHoursWithoutSeconds(concert);index as i;">
+              <mat-chip-listbox>
+                <mat-chip-option *ngFor="let hour of getHoursWithoutSeconds(concert);index as i;" selectable="false">
                   {{hour}}
-                </mat-chip>
-              </mat-chip-list>
+                </mat-chip-option>
+              </mat-chip-listbox>
 
             </div>
             <br>
@@ -95,8 +97,9 @@
             <br>
           </div>
         </mat-card-subtitle>
-        <img *ngIf="concert.image" class="card-img-top" mat-card-image
-             [src]="'https://rc.arsenelapostolet.fr/api/Files/' + concert.image" alt="">
+
+          </mat-card-header>
+        <img *ngIf="concert.image" mat-card-image [src]="'https://rc.arsenelapostolet.fr/api/Files/' + concert.image" alt="">
 
         <mat-card-content>
           <p>
