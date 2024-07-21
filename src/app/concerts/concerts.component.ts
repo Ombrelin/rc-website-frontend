@@ -90,9 +90,9 @@ export class ConcertsComponent implements OnInit {
   }
 
   isDateInThePast(dateTime: string) :boolean {
-    const tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate() + 7)
-    return new Date(dateTime) < tomorrow;
+    const lastWeek = new Date();
+    lastWeek.setDate(lastWeek.getDate() - 7)
+    return new Date(dateTime) < lastWeek;
   }
 
 
